@@ -5,9 +5,11 @@
   position: relative;
   transition: width 0.3s;
 }
+
 .collapsed {
   width: var(--sidebar-width-collapsed);
 }
+
 .swithers {
   position: absolute;
   bottom: 20px;
@@ -16,6 +18,7 @@
   align-items: center;
   width: 100%;
 }
+
 .lang {
   margin-left: 20px;
 }

@@ -14,6 +14,7 @@ const App: FC<AppProps> = ({}) => {
     <div className={classNames('app', {}, [theme])}>
       <Suspense fallback="">
         <Navbar />
+        test
         <div className="content-page">
           <Sidebar />
           <AppRouter />

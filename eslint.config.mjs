@@ -6,6 +6,7 @@ import eslintReactHooks from 'eslint-plugin-react-hooks';
 import eslintReactRefresh from 'eslint-plugin-react-refresh';
 // import prettierPlugin from 'eslint-plugin-prettier';
 import eslintConfigPrettier from 'eslint-config-prettier';
+// import i18next from 'eslint-plugin-i18next';
 
 /** @type {import('eslint').Linter.Config[]} */
 export default tseslint.config(
@@ -16,6 +17,7 @@ export default tseslint.config(
       react: eslintReact,
       'react-refresh': eslintReactRefresh,
       // prettier: prettierPlugin,
+      // i18next: i18next,
     },
   },
   {
@@ -23,6 +25,7 @@ export default tseslint.config(
   },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
+  // i18next.configs['flat/recommended'],
   {
     languageOptions: {
       globals: {
@@ -49,6 +52,8 @@ export default tseslint.config(
       '@typescript-eslint/no-empty-object-type': 'off',
       '@typescript-eslint/ban-ts-comment': 'warn',
       'no-empty-pattern': 'warn',
+      'i18next/no-literal-string': 'warn',
+      'i18next/no-unsafe-key': 'error',
     },
   }
 );
