@@ -2,5 +2,10 @@
   "about": "about",
   "language": "language",
   "main": "main",
-  "sadasdsa": "sadasdsa"
+  "pageNotFound": "pageNotFound",
+  "reloadPage": "reloadPage",
+  "sadasdsa": "sadasdsa",
+  "someError": "someError",
+  "throw error": "throw error",
+  "throwError": "throwError"
 }

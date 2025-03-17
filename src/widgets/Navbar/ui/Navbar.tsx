@@ -8,7 +8,7 @@ interface NavbarProps {
 
 const Navbar: FC<NavbarProps> = ({ className }) => {
   return (
-    <div className={classNames(styles.navbar, {}, [className])}>
+    <div className={classNames(styles.Navbar, {}, [className])}>
       <div className={styles.links}>
         <AppLink
           to={'/'}

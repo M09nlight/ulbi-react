@@ -17,7 +17,7 @@ const Sidebar: FC<SidebarProps> = ({ className }) => {
 
   return (
     <div
-      className={classNames(styles.sidebar, { [styles.collapsed]: collapsed }, [
+      className={classNames(styles.Sidebar, { [styles.collapsed]: collapsed }, [
         className,
       ])}
     >

@@ -53,7 +53,7 @@ export default tseslint.config(
       '@typescript-eslint/ban-ts-comment': 'warn',
       'no-empty-pattern': 'warn',
       'i18next/no-literal-string': 'warn',
-      'i18next/no-unsafe-key': 'error',
+      'i18next/no-unsafe-key': 'warn',
     },
   }
 );

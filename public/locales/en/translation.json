@@ -1,5 +1,9 @@
 {
   "test": "test",
   "language": "Russian",
-  "main": "Main"
+  "main": "Main",
+  "pageNotFound": "Page not found",
+  "someError": "Some error",
+  "reloadPage": "Reload page",
+  "throwError": "Throw Error"
 }
