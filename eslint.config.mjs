@@ -52,8 +52,20 @@ export default tseslint.config(
       '@typescript-eslint/no-empty-object-type': 'off',
       '@typescript-eslint/ban-ts-comment': 'warn',
       'no-empty-pattern': 'warn',
-      'i18next/no-literal-string': 'warn',
+      'i18next/no-literal-string': ['error', { markupOnly: true }],
       'i18next/no-unsafe-key': 'warn',
+
+      // 'import/no-unresolved': 'off',
+      // 'import/prefer-default-export': 'off',
+      // 'react/require-default-props': 'off',
+      // 'react/react-in-jsx-scope': 'off',
+      // 'react/jsx-props-no-spreading': 'warn',
+      // 'react/function-component-definition': 'off',
+      // 'no-shadow': 'off',
+      // 'import/extensions': 'off',
+      // 'import/no-extraneous-dependencies': 'off',
+      // 'no-underscore-dangle': 'off',
+      // 'max-len': ['error', { ignoreComments: true, code: 100 }],
     },
   }
 );
