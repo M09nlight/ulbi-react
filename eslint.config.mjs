@@ -52,7 +52,11 @@ export default tseslint.config(
       '@typescript-eslint/no-empty-object-type': 'off',
       '@typescript-eslint/ban-ts-comment': 'warn',
       'no-empty-pattern': 'warn',
-      'i18next/no-literal-string': ['error', { markupOnly: true }],
+      'i18next/no-literal-string': [
+        'error',
+        { markupOnly: true },
+        { ignoreAttribute: ['data-testid'] },
+      ],
       'i18next/no-unsafe-key': 'warn',
 
       // 'import/no-unresolved': 'off',
