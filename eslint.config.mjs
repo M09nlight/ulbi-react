@@ -57,7 +57,7 @@ export default tseslint.config(
         { markupOnly: true },
         { ignoreAttribute: ['data-testid'] },
       ],
-      'i18next/no-unsafe-key': 'warn',
+      // 'i18next/no-unsafe-key': 'warn',
 
       // 'import/no-unresolved': 'off',
       // 'import/prefer-default-export': 'off',
