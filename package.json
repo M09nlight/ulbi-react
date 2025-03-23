@@ -15,7 +15,8 @@
     "webpack": "webpack",
     "test": "jest",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
-    "build-storybook": "storybook build -c ./config/storybook",
+    "storybook:build": "storybook build -c ./config/storybook",
+    "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static",
     "test:ui": "npx loki --chromeConcurrency 1 test",
     "test:ui:ok": "npx loki --chromeConcurrency 1 approve"
   },
