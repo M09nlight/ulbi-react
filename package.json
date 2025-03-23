@@ -16,7 +16,7 @@
     "test": "jest",
     "storybook": "storybook dev -p 6006 -c ./config/storybook",
     "storybook:build": "storybook build -c ./config/storybook",
-    "test:ui:ci": "npx loki --requireReference --reactUri file:./storybook-static",
+    "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
     "test:ui": "npx loki --chromeConcurrency 1 test",
     "test:ui:ok": "npx loki --chromeConcurrency 1 approve"
   },
@@ -103,6 +103,9 @@
     ]
   },
   "loki": {
+    "looks-same": {
+      "ignoreCaret": true
+    },
     "configurations": {
       "chrome.laptop": {
         "target": "chrome.app",
