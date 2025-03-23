@@ -34,10 +34,10 @@ export default tseslint.config(
         ...globals.es2022,
         __IS_DEV__: true,
       },
-      // parserOptions: eslintReact.configs.recommended.parserOptions,
-      parserOptions: {
-        project: ['tsconfig.json', 'tsconfig.node.json'],
-      },
+      parserOptions: eslintReact.configs.recommended.parserOptions,
+      // parserOptions: {
+      //   project: ['tsconfig.json', 'tsconfig.node.json'],
+      // },
     },
   },
   {
