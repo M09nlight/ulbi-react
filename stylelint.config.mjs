@@ -4,6 +4,7 @@ export default {
   rules: {
     'block-no-empty': true,
     'selector-class-pattern': null,
+    'number-max-precision': null,
     // 'no-empty-source': null,
   },
 };
