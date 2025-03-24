@@ -47,7 +47,6 @@ export default tseslint.config(
       ...eslintConfigPrettier.rules,
       'prefer-const': 'warn',
       'no-unused-vars': 'warn',
-      'no-undef': 'warn',
       '@typescript-eslint/no-unused-vars': 'warn',
       '@typescript-eslint/no-empty-object-type': 'off',
       '@typescript-eslint/ban-ts-comment': 'warn',
