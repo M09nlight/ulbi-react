@@ -22,10 +22,10 @@ type Story = StoryObj<typeof meta>;
 
 export const Light: Story = {
   args: {},
+  decorators: [RouterDecorator()],
 };
-Light.decorators = [RouterDecorator];
 
 export const Dark: Story = {
   args: {},
+  decorators: [ThemeDecorator(Theme.DARK), RouterDecorator()],
 };
-Dark.decorators = [ThemeDecorator(Theme.DARK), RouterDecorator];
