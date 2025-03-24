@@ -1,6 +1,7 @@
 {
   "test": "test",
   "language": "Russian",
+  "shortLang": "Ru",
   "main": "Main",
   "pageNotFound": "Page not found",
   "someError": "Some error",

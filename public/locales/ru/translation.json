@@ -1,6 +1,7 @@
 {
   "test": "тест",
   "language": "Английский",
+  "shortLang": "En",
   "main": "Главная",
   "pageNotFound": "Страница не найдена",
   "someError": "Какая-то ошибка",
