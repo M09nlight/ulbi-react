@@ -21,7 +21,7 @@ export default tseslint.config(
     },
   },
   {
-    ignores: ['node_modules', 'build'],
+    ignores: ['node_modules', 'build', 'storybook-static'],
   },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
