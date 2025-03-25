@@ -52,7 +52,6 @@ const Modal: FC<ModalProps> = ({ className, children, isOpen, onClose }) => {
       window.removeEventListener('keydown', onKeyDown);
     };
   }, [isOpen, onKeyDown]);
-
   return (
     <Portal>
       <div className={classNames(styles.Modal, mods, [className])}>
