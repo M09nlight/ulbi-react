@@ -52,6 +52,8 @@ export default tseslint.config(
       '@typescript-eslint/ban-ts-comment': 'warn',
       '@typescript-eslint/no-require-imports': 'off',
       'no-empty-pattern': 'warn',
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'error',
       // 'i18next/no-literal-string': [
       //   'error',
       //   { markupOnly: true },

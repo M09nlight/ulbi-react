@@ -1,4 +1,10 @@
 {
+  "Enter": "Enter",
+  "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
+    " Aliquid commodi consequatur eligendi impedit incidunt necessitatibus possimus quis saepe sunt totam": {
+      "": ""
+    }
+  },
   "about": "about",
   "language": "language",
   "main": "main",
@@ -7,5 +13,6 @@
   "sadasdsa": "sadasdsa",
   "someError": "someError",
   "throw error": "throw error",
-  "throwError": "throwError"
+  "throwError": "throwError",
+  "Войти": "Войти"
 }
