@@ -7,5 +7,7 @@
   "someError": "Some error",
   "reloadPage": "Reload page",
   "throwError": "Throw Error",
-  "Enter": "Enter"
+  "Enter": "Enter",
+  "increment": "increment",
+  "decrement": "decrement"
 }

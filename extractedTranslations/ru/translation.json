@@ -6,6 +6,8 @@
     }
   },
   "about": "about",
+  "decrement": "decrement",
+  "increment": "increment",
   "language": "language",
   "main": "main",
   "pageNotFound": "pageNotFound",

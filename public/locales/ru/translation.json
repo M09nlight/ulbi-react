@@ -7,5 +7,7 @@
   "someError": "Какая-то ошибка",
   "reloadPage": "Обновить страницу",
   "throwError": "Вызвать ошибку",
-  "Enter": "Войти"
+  "Enter": "Войти",
+  "increment": "инкремент",
+  "decrement": "декремент"
 }
