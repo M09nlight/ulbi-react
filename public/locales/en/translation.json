@@ -9,5 +9,7 @@
   "throwError": "Throw Error",
   "Enter": "Enter",
   "increment": "increment",
-  "decrement": "decrement"
+  "decrement": "decrement",
+  "enterPassword": "Enter password",
+  "enterUsername": "Enter username"
 }

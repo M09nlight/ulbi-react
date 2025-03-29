@@ -9,5 +9,7 @@
   "throwError": "Вызвать ошибку",
   "Enter": "Войти",
   "increment": "инкремент",
-  "decrement": "декремент"
+  "decrement": "декремент",
+  "enterPassword": "Введите password",
+  "enterUsername": "Введите username"
 }

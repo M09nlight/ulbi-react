@@ -7,6 +7,8 @@
   },
   "about": "about",
   "decrement": "decrement",
+  "enterPassword": "enterPassword",
+  "enterUsername": "enterUsername",
   "increment": "increment",
   "language": "language",
   "main": "main",

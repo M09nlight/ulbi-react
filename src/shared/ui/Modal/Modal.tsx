@@ -8,11 +8,19 @@ interface ModalProps {
   className?: string;
   isOpen?: boolean;
   onClose?: () => void;
+  lazy?: boolean;
 }
 const ANIMATION_DELAY = 300;
 
-const Modal: FC<ModalProps> = ({ className, children, isOpen, onClose }) => {
+const Modal: FC<ModalProps> = ({
+  className,
+  children,
+  isOpen,
+  lazy,
+  onClose,
+}) => {
   const [isClosing, setIsClosing] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
   const mods: Record<string, boolean> = {
     [styles.opened]: isOpen,
@@ -44,6 +52,12 @@ const Modal: FC<ModalProps> = ({ className, children, isOpen, onClose }) => {
 
   useEffect(() => {
     if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (isOpen) {
       window.addEventListener('keydown', onKeyDown);
     }
 
@@ -52,6 +66,11 @@ const Modal: FC<ModalProps> = ({ className, children, isOpen, onClose }) => {
       window.removeEventListener('keydown', onKeyDown);
     };
   }, [isOpen, onKeyDown]);
+
+  if (lazy && !isMounted) {
+    return null;
+  }
+
   return (
     <Portal>
       <div className={classNames(styles.Modal, mods, [className])}>
