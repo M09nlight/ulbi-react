@@ -2,6 +2,7 @@ import { FC, useCallback, useEffect, useRef, useState } from 'react';
 import { classNames } from 'shared/lib/classNames/classNames';
 import styles from './Modal.module.scss';
 import Portal from '../Portal/Portal';
+import { useTheme } from 'app/providers/ThemeProvider';
 
 interface ModalProps {
   className?: string;
@@ -13,7 +14,6 @@ const ANIMATION_DELAY = 300;
 const Modal: FC<ModalProps> = ({ className, children, isOpen, onClose }) => {
   const [isClosing, setIsClosing] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
-
   const mods: Record<string, boolean> = {
     [styles.opened]: isOpen,
     [styles.isClosing]: isClosing,

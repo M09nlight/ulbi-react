@@ -8,13 +8,10 @@ import { Sidebar } from 'widgets/Sidebar';
 interface AppProps {}
 
 const App: FC<AppProps> = ({}) => {
-  const { theme } = useTheme();
-
   return (
-    <div className={classNames('app', {}, [theme])}>
+    <div className={classNames('app', {}, [])}>
       <Suspense fallback="">
         <Navbar />
-
         <div className="content-page">
           <Sidebar />
           <AppRouter />
