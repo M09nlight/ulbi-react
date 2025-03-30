@@ -3,6 +3,8 @@ import Navbar from './Navbar';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
+import { StoreProvider } from 'app/providers/StoreProvider';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 
 const meta = {
   title: 'widget/Navbar',
@@ -26,4 +28,14 @@ export const Light: Story = {
 export const Dark: Story = {
   args: {},
   decorators: [ThemeDecorator(Theme.DARK), RouterDecorator()],
+};
+export const Authorized: Story = {
+  args: {},
+  decorators: [
+    ThemeDecorator(Theme.DARK),
+    RouterDecorator(),
+    StoreDecorator({
+      user: { authData: { username: '123', id: '1' } },
+    }),
+  ],
 };

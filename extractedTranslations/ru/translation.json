@@ -1,5 +1,6 @@
 {
   "Enter": "Enter",
+  "Logout": "Logout",
   "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
     " Aliquid commodi consequatur eligendi impedit incidunt necessitatibus possimus quis saepe sunt totam": {
       "": ""
@@ -9,6 +10,7 @@
   "decrement": "decrement",
   "enterPassword": "enterPassword",
   "enterUsername": "enterUsername",
+  "formAuth": "formAuth",
   "increment": "increment",
   "language": "language",
   "main": "main",

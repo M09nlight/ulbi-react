@@ -4,10 +4,18 @@ import { useTheme } from 'app/providers/ThemeProvider';
 import { AppRouter } from './providers/router';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
+import { userActions } from 'entities/User/model/slice/userSlice';
+import { useDispatch } from 'react-redux';
 
 interface AppProps {}
 
 const App: FC<AppProps> = ({}) => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(userActions.initAuthData());
+  }, [dispatch]);
+
   return (
     <div className={classNames('app', {}, [])}>
       <Suspense fallback="">
