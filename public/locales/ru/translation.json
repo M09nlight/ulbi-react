@@ -14,5 +14,6 @@
   "enterUsername": "Введите username",
   "formAuth": "Форма авторизации",
   "incorrectEmailOrPassword": "Вы ввели неверный email или password",
-  "Logout": "Выйти"
+  "Logout": "Выйти",
+  "about": "О сайте"
 }

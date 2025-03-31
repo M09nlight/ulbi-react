@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh позволяет перед отправкой коммита проверить все скрипты
 #. "$(dirname "$0")/_/husky.sh"
 
 #npm run build:prod

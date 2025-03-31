@@ -8,6 +8,7 @@ import AppLink, { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import MainIcon from 'shared/assets/icons/main-20-20.svg';
 import AboutIcon from 'shared/assets/icons/about-20-20.svg';
+import { useTranslation } from 'react-i18next';
 
 interface SidebarProps {
   className?: string;
@@ -15,6 +16,7 @@ interface SidebarProps {
 
 const Sidebar: FC<SidebarProps> = ({ className }) => {
   const [collapsed, setCollapsed] = useState(false);
+  const { t } = useTranslation();
 
   const onToggle = () => {
     setCollapsed((prev) => !prev);
@@ -44,7 +46,7 @@ const Sidebar: FC<SidebarProps> = ({ className }) => {
           className={styles.item}
         >
           <MainIcon className={styles.icon} />
-          <span className={styles.link}> Главная</span>
+          <span className={styles.link}> {t('main')}</span>
         </AppLink>
         <AppLink
           to={RoutePath.about}
@@ -52,7 +54,7 @@ const Sidebar: FC<SidebarProps> = ({ className }) => {
           className={styles.item}
         >
           <AboutIcon className={styles.icon} />
-          <span className={styles.link}>О сайте</span>
+          <span className={styles.link}> {t('about')}</span>
         </AppLink>
       </div>
       <div className={styles.swithers}>

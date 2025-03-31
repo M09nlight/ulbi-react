@@ -1,15 +1,15 @@
-import HTMLWebpackPlugin from 'html-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
-import { BuildOptions } from './types/config';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import { BuildOptions } from './types/config';
 
 export function buildPlugins({
   paths,
   isDev,
 }: BuildOptions): webpack.WebpackPluginInstance[] {
   const plugins = [
-    new HTMLWebpackPlugin({
+    new HtmlWebpackPlugin({
       template: paths.html,
     }),
     new webpack.ProgressPlugin(),
@@ -19,17 +19,17 @@ export function buildPlugins({
     }),
     new webpack.DefinePlugin({
       __IS_DEV__: JSON.stringify(isDev),
-    }), //в само приложение прокидываются глобальные переменные,
+    }),
   ];
+
+  plugins.push(
+    new BundleAnalyzerPlugin({
+      openAnalyzer: true,
+    })
+  );
 
   if (isDev) {
     plugins.push(new webpack.HotModuleReplacementPlugin());
-    plugins.push(
-      //обновление без перезагрузки страницы
-      new BundleAnalyzerPlugin({
-        openAnalyzer: false,
-      })
-    );
   }
 
   return plugins;
