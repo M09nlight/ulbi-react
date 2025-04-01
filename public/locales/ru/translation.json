@@ -15,5 +15,6 @@
   "formAuth": "Форма авторизации",
   "incorrectEmailOrPassword": "Вы ввели неверный email или password",
   "Logout": "Выйти",
-  "about": "О сайте"
+  "about": "О сайте",
+  "profilePage": "Страница профиля"
 }

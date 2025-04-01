@@ -15,5 +15,6 @@
   "formAuth": "Form authorization",
   "incorrectEmailOrPassword": "You enter incorrect email or password",
   "Logout": "Logout",
-  "about": "About site"
+  "about": "About site",
+  "profilePage": "Profile page"
 }
