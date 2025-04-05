@@ -2,5 +2,14 @@
   "profile": "Профиль",
   "edit": "Редактировать",
   "yourName": "Ваше имя",
-  "yourLastname": "Ваша фамилия"
+  "yourLastname": "Ваша фамилия",
+  "yourCity": "Ваш  город",
+  "yourAge": "Ваш возраст",
+  "yourUsername": "Ваш ник",
+  "enterAvatarLink": "Введите ссылку на аватар",
+  "enterCurrency": "Введите валюту",
+  "enterCountry": "Введите страну",
+  "errorLoadingPage": "Ошиюка загрузки страницы",
+  "tryToReloadPage": "Попытайтесь обновить страницу",
+  "cancel": "Отмена"
 }

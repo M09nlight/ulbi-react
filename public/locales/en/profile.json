@@ -2,5 +2,14 @@
   "profile": "Profile",
   "edit": "Edit",
   "yourName": "Your name",
-  "yourLastname": "Your lastname"
+  "yourLastname": "Your lastname",
+  "yourCity": "Your city",
+  "yourAge": "Your age",
+  "yourUsername": "Your username",
+  "enterAvatarLink": "Enter avatar link",
+  "enterCurrency": "Enter currency",
+  "enterCountry": "Enter country",
+  "errorLoadingPage": "Error loading page",
+  "tryToReloadPage": "Try to reload page",
+  "cancel": "Cancel"
 }
