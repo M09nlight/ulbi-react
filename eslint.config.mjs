@@ -33,6 +33,7 @@ export default tseslint.config(
         ...globals.browser,
         ...globals.es2022,
         __IS_DEV__: true,
+        __API__: true,
       },
       parserOptions: eslintReact.configs.recommended.parserOptions,
       // parserOptions: {
@@ -55,6 +56,7 @@ export default tseslint.config(
       'no-empty-pattern': 'warn',
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'error',
+      'no-debugger': 'off',
       // 'i18next/no-literal-string': [
       //   'error',
       //   { markupOnly: true },

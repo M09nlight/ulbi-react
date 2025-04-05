@@ -8,6 +8,7 @@
   },
   "about": "about",
   "decrement": "decrement",
+  "edit": "edit",
   "enterPassword": "enterPassword",
   "enterUsername": "enterUsername",
   "formAuth": "formAuth",
@@ -15,11 +16,14 @@
   "language": "language",
   "main": "main",
   "pageNotFound": "pageNotFound",
+  "profile": "profile",
   "profilePage": "profilePage",
   "reloadPage": "reloadPage",
   "sadasdsa": "sadasdsa",
   "someError": "someError",
   "throw error": "throw error",
   "throwError": "throwError",
+  "yourLastname": "yourLastname",
+  "yourName": "yourName",
   "Войти": "Войти"
 }
