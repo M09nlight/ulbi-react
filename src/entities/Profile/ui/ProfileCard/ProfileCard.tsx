@@ -70,7 +70,7 @@ const ProfileCard: FC<ProfileCardProps> = ({
 
   return (
     <div className={classNames(cls.ProfileCard, mods, [className])}>
-      {data?.age && (
+      {data?.avatar && (
         <div className={cls.avatarWrapper}>
           <Avatar src={data.avatar} />
         </div>

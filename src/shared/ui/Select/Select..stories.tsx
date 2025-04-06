@@ -1,24 +1,22 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
+import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import Select from 'shared/ui/Select/Select';
 
-import Select from './Select';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
-
-const meta = {
+export default {
   title: 'shared/Select',
   component: Select,
-  parameters: {
-    layout: 'centered',
+  argTypes: {
+    backgroundColor: { control: 'color' },
   },
-  tags: ['autodocs'],
-  argTypes: {},
-  args: {},
-} satisfies Meta<typeof Select>;
+} as ComponentMeta<typeof Select>;
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+const Template: ComponentStory<typeof Select> = (args) => <Select {...args} />;
 
-export const Primary: Story = {
-  args: { label: 'Enter value', options: [{ value: '1', content: 'content' }] },
+export const Primary = Template.bind({});
+Primary.args = {
+  label: 'Укажите значение',
+  options: [
+    { value: '123', content: 'Первый пункт' },
+    { value: '1234', content: 'Второй пункт' },
+  ],
 };

@@ -1,26 +1,19 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
+import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import Input from 'shared/ui/Input/Input';
 
-import Input from './Input';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
-
-const meta = {
+export default {
   title: 'shared/Input',
   component: Input,
-  parameters: {
-    layout: 'centered',
+  argTypes: {
+    backgroundColor: { control: 'color' },
   },
-  tags: ['autodocs'],
-  argTypes: {},
-  args: { onClick: fn() },
-} satisfies Meta<typeof Input>;
+} as ComponentMeta<typeof Input>;
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 
-export const Primary: Story = {
-  args: { placeholder: 'test', value: '11111' },
+export const Primary = Template.bind({});
+Primary.args = {
+  placeholder: 'Type text',
+  value: '123123',
 };
-
-Primary.decorators = [ThemeDecorator(Theme.DARK)];

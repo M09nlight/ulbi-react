@@ -1,21 +1,18 @@
-import type { Meta, StoryObj } from '@storybook/react';
-
+import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import CurrencySelect from './CurrencySelect';
 
-const meta = {
-  title: 'entity/CurrencySelect',
+export default {
+  title: 'entities/CurrencySelect',
   component: CurrencySelect,
-  parameters: {
-    layout: 'centered',
+  argTypes: {
+    backgroundColor: { control: 'color' },
   },
-  tags: ['autodocs'],
-  argTypes: {},
-  args: {},
-} satisfies Meta<typeof CurrencySelect>;
+} as ComponentMeta<typeof CurrencySelect>;
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+const Template: ComponentStory<typeof CurrencySelect> = (args) => (
+  <CurrencySelect {...args} />
+);
 
-export const Primary: Story = {
-  args: {},
-};
+export const Primary = Template.bind({});
+Primary.args = {};

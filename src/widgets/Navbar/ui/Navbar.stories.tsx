@@ -1,41 +1,32 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import Navbar from './Navbar';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { RouterDecorator } from 'shared/config/storybook/RouterDecorator/RouterDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
-import { StoreProvider } from 'app/providers/StoreProvider';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-const meta = {
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import Navbar from './Navbar';
+
+export default {
   title: 'widget/Navbar',
   component: Navbar,
-  parameters: {
-    layout: 'centered',
+  argTypes: {
+    backgroundColor: { control: 'color' },
   },
-  tags: ['autodocs'],
-  argTypes: {},
-  args: {},
-} satisfies Meta<typeof Navbar>;
+} as ComponentMeta<typeof Navbar>;
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+const Template: ComponentStory<typeof Navbar> = (args) => <Navbar {...args} />;
 
-export const Light: Story = {
-  args: {},
-  decorators: [ThemeDecorator(Theme.LIGHT), RouterDecorator()],
-};
+export const Light = Template.bind({});
+Light.args = {};
+Light.decorators = [StoreDecorator({})];
+export const Dark = Template.bind({});
+Dark.args = {};
+Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
 
-export const Dark: Story = {
-  args: {},
-  decorators: [ThemeDecorator(Theme.DARK), RouterDecorator()],
-};
-export const Authorized: Story = {
-  args: {},
-  decorators: [
-    ThemeDecorator(Theme.DARK),
-    RouterDecorator(),
-    StoreDecorator({
-      user: { authData: { username: '123', id: '1' } },
-    }),
-  ],
-};
+export const AuthNavbar = Template.bind({});
+AuthNavbar.args = {};
+AuthNavbar.decorators = [
+  StoreDecorator({
+    user: { authData: {} },
+  }),
+];

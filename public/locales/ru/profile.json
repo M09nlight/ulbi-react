@@ -7,9 +7,13 @@
   "yourAge": "Ваш возраст",
   "yourUsername": "Ваш ник",
   "enterAvatarLink": "Введите ссылку на аватар",
-  "enterCurrency": "Введите валюту",
-  "enterCountry": "Введите страну",
   "errorLoadingPage": "Ошиюка загрузки страницы",
   "tryToReloadPage": "Попытайтесь обновить страницу",
-  "cancel": "Отмена"
+  "cancel": "Отмена",
+  "save": "Сохранить",
+  "noData": "No data",
+  "serverErr": "Server error",
+  "incorrecUserData": "Incorrect user data",
+  "incorrectAge": "Incorrect age",
+  "incorrectCountry": "Incorrect country"
 }

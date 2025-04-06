@@ -7,9 +7,13 @@
   "yourAge": "Your age",
   "yourUsername": "Your username",
   "enterAvatarLink": "Enter avatar link",
-  "enterCurrency": "Enter currency",
-  "enterCountry": "Enter country",
   "errorLoadingPage": "Error loading page",
   "tryToReloadPage": "Try to reload page",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "save": "Save",
+  "noData": "No data",
+  "serverErr": "Server error",
+  "incorrecUserData": "Incorrect user data",
+  "incorrectAge": "Incorrect age",
+  "incorrectCountry": "Incorrect country"
 }

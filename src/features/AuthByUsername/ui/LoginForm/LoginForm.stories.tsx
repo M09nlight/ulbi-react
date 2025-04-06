@@ -1,49 +1,39 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
-
-import LoginForm from './LoginForm';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+import LoginForm from './LoginForm';
 
-const meta = {
+export default {
   title: 'features/LoginForm',
   component: LoginForm,
-  parameters: {
-    layout: 'centered',
+  argTypes: {
+    backgroundColor: { control: 'color' },
   },
-  tags: ['autodocs'],
-  argTypes: {},
-  args: { onSuccess: fn() },
-} satisfies Meta<typeof LoginForm>;
+} as ComponentMeta<typeof LoginForm>;
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+const Template: ComponentStory<typeof LoginForm> = (args) => (
+  <LoginForm {...args} />
+);
 
-export const Primary: Story = {
-  args: {},
-  decorators: [
-    StoreDecorator({
-      loginForm: { username: '123', password: '123' },
-    }),
-    ThemeDecorator(Theme.DARK),
-  ],
-};
-export const WithError: Story = {
-  args: {},
-  decorators: [
-    StoreDecorator({
-      loginForm: { username: '123', password: '123', error: 'error' },
-    }),
-    ThemeDecorator(Theme.DARK),
-  ],
-};
-export const WithLoading: Story = {
-  args: {},
-  decorators: [
-    StoreDecorator({
-      loginForm: { username: '123', password: '123', isLoading: true },
-    }),
-    ThemeDecorator(Theme.DARK),
-  ],
-};
+export const Primary = Template.bind({});
+Primary.args = {};
+Primary.decorators = [
+  StoreDecorator({
+    loginForm: { username: '123', password: 'asd' },
+  }),
+];
+
+export const withError = Template.bind({});
+withError.args = {};
+withError.decorators = [
+  StoreDecorator({
+    loginForm: { username: '123', password: 'asd', error: 'ERROR' },
+  }),
+];
+
+export const Loading = Template.bind({});
+Loading.args = {};
+Loading.decorators = [
+  StoreDecorator({
+    loginForm: { isLoading: true },
+  }),
+];

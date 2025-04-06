@@ -33,7 +33,7 @@ export default tseslint.config(
         ...globals.browser,
         ...globals.es2022,
         __IS_DEV__: true,
-        __API__: true,
+        __PROJECT__: true,
       },
       parserOptions: eslintReact.configs.recommended.parserOptions,
       // parserOptions: {

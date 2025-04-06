@@ -13,6 +13,8 @@
   "enterPassword": "Введите password",
   "enterUsername": "Введите username",
   "formAuth": "Форма авторизации",
+  "enterCountry": "Введите страну",
+  "enterCurrency": "Введите валюту",
   "incorrectEmailOrPassword": "Вы ввели неверный email или password",
   "Logout": "Выйти",
   "about": "О сайте",
