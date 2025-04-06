@@ -5,7 +5,7 @@ import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import Text from 'shared/ui/Text/Text';
 import { useSelector } from 'react-redux';
 import {
-  getProfileReadOnly,
+  getProfileReadonly,
   profileActions,
   updateProfileData,
 } from 'entities/Profile';
@@ -15,7 +15,7 @@ interface ProfilePageHeaderProps {}
 
 const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({}) => {
   const { t } = useTranslation('profile');
-  const readonly = useSelector(getProfileReadOnly);
+  const readonly = useSelector(getProfileReadonly);
   const dispatch = useAppDispatch();
 
   const onEdit = useCallback(() => {

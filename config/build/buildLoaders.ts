@@ -1,34 +1,15 @@
 import webpack from 'webpack';
 import { BuildOptions } from './types/config';
-import { buildCssLoader } from './loaders/buildCssLoaders';
+import { buildCssLoader } from './loaders/buildCssLoader';
 import { buildSvgLoader } from './loaders/buildSvgLoader';
+import { buildBabelLoader } from './loaders/buildBabelLoader';
 
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
   const { isDev } = options;
 
   const svgLoader = buildSvgLoader();
 
-  const babelLoader = {
-    test: /\.(?:js|jsx|tsx)$/,
-    exclude: /node_modules/,
-    use: {
-      loader: 'babel-loader',
-      options: {
-        targets: 'defaults',
-        presets: [['@babel/preset-env']],
-        plugins: [
-          //позволяет отдельно сохранить переводы при создание нового поля в коде, создает в папке extractedTranslations
-          [
-            'i18next-extract',
-            {
-              locales: ['ru', 'en'],
-              keyAsDefaultValue: true,
-            },
-          ],
-        ],
-      },
-    },
-  };
+  const babelLoader = buildBabelLoader(isDev);
 
   const cssLoader = buildCssLoader(isDev);
 

@@ -2,7 +2,7 @@ import {
   fetchProfileData,
   getProfileError,
   getProfileIsLoading,
-  getProfileReadOnly,
+  getProfileReadonly,
   getProfileValidateErrors,
   profileActions,
   ProfileCard,
@@ -38,7 +38,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
   const formData = useSelector(getProfileForm);
   const isLoading = useSelector(getProfileIsLoading);
   const error = useSelector(getProfileError);
-  const readonly = useSelector(getProfileReadOnly);
+  const readonly = useSelector(getProfileReadonly);
   const validateErrors = useSelector(getProfileValidateErrors);
   const validateErrorsTranslate = {
     [ValidateProfileError.INCORRECT_COUNTRY]: t('incorrectCountry'),
