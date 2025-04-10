@@ -8,6 +8,7 @@
   },
   "SERVER_ERROR": "SERVER_ERROR",
   "about": "about",
+  "articleNotFound": "articleNotFound",
   "cancel": "cancel",
   "decrement": "decrement",
   "edit": "edit",
@@ -41,5 +42,8 @@
   "yourLastname": "yourLastname",
   "yourName": "yourName",
   "yourUsername": "yourUsername",
-  "Войти": "Войти"
+  "Войти": "Войти",
+  "Произошла ошибка при загрузке статьи": {
+    "": ""
+  }
 }
