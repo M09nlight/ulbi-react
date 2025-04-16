@@ -37,7 +37,13 @@ export enum ArticleType {
   ECONOMICS = 'ECONOMICS',
 }
 
+export enum ArticleView {
+  BIG = 'BIG',
+  SMALL = 'SMALL',
+}
+
 export interface Article {
+  user: any;
   id: string;
   title: string;
   subtitle: string;

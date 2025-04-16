@@ -1,7 +1,7 @@
 .app_orange_theme {
   --bg-color: #faf4fb;
   --inverted-bg-color: #bd5012;
-  --primary-color: #9a1a9e;
+  --primary-color: #9a1a0e;
   --secondary-color: #d01f0e;
   --inverted-primary-color: #dbd5dc;
   --inverted-secondary-color: #faf4fb;
@@ -12,4 +12,7 @@
 
   // code
   --code-bg: #fff;
+
+  // card
+  --card-bg: #d5d5d7;
 }
