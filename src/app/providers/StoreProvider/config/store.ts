@@ -11,6 +11,7 @@ import { userReducer } from 'entities/User';
 import { createReducerManager } from './reducerManager';
 import { $api } from 'shared/api/api';
 import { NavigateFunction } from 'react-router-dom';
+import { articlesPageReducer } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
 
 export function createReduxStore(
   navigate: NavigateFunction,
