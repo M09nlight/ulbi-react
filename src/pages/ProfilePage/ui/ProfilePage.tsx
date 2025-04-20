@@ -24,6 +24,7 @@ import { Country } from 'entities/Country';
 import Text, { TextTheme } from 'shared/ui/Text/Text';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
+import Page from 'shared/ui/Page/Page';
 
 interface ProfilePageProps {
   className?: string;
@@ -108,7 +109,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>
-      <div className={classNames('', {}, [className])}>
+      <Page className={classNames('', {}, [className])}>
         <ProfilePageHeader />
         {validateErrors?.length &&
           validateErrors.map((err) => (
@@ -132,7 +133,7 @@ const ProfilePage: FC<ProfilePageProps> = ({ className }) => {
           onChangeCountry={onChangeCountry}
           readonly={readonly}
         />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };
