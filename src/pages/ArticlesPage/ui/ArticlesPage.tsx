@@ -13,8 +13,8 @@ import {
   getArticlesPageIsLoading,
   getArticlesPageView,
 } from '../model/selectors/getArticlesPageSelectors';
-import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticles/fetchNextArticlesPage';
+import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
 import {
   articlesPageActions,
   articlesPageReducer,
@@ -41,12 +41,7 @@ const ArticlesPage: FC<ArticlesPageProps> = memo(({ className }) => {
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(articlesPageActions.initState());
-    dispatch(
-      fetchArticlesList({
-        page: 1,
-      })
-    );
+    dispatch(initArticlesPage());
   });
 
   const onChageView = useCallback(
@@ -57,7 +52,7 @@ const ArticlesPage: FC<ArticlesPageProps> = memo(({ className }) => {
   );
 
   return (
-    <DynamicModuleLoader reducers={reducers}>
+    <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page
         className={classNames(cls.ArticleList, {}, [className])}
         onScrollEnd={onLoadNextPart}

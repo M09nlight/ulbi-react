@@ -14,7 +14,6 @@ import { NavigateFunction } from 'react-router-dom';
 import { articlesPageReducer } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
 
 export function createReduxStore(
-  navigate: NavigateFunction,
   initialState?: StateSchema,
   asyncReducers?: ReducersMapObject<StateSchema>
 ) {
@@ -28,7 +27,6 @@ export function createReduxStore(
 
   const extraArg: ThunkExtraArg = {
     api: $api,
-    navigate,
   };
 
   const store = configureStore({

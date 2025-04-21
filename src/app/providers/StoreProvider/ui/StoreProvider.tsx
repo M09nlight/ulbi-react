@@ -15,13 +15,16 @@ const StoreProvider: FC<StoreProviderProps> = ({
   initialState,
   asyncReducers,
 }) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const store = createReduxStore(
-    navigate,
     initialState as StateSchema,
     asyncReducers as ReducersMapObject<StateSchema>
+    // navigate,
   );
+
+  console.log('render');
+
   return <Provider store={store}>{children}</Provider>;
 };
 
