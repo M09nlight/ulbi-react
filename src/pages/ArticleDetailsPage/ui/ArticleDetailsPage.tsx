@@ -21,7 +21,7 @@ import { AddCommentForm } from 'features/AddNewCommentForm';
 import { getArticleCommentsIsLoading } from '../model/selectors/comments';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import Page from 'shared/ui/Page/Page';
+import Page from 'widgets/Page/ui/Page';
 
 interface ArticleDetailsPageProps {
   className?: string;

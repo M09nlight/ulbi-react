@@ -12,6 +12,7 @@ import { createReducerManager } from './reducerManager';
 import { $api } from 'shared/api/api';
 import { NavigateFunction } from 'react-router-dom';
 import { articlesPageReducer } from 'pages/ArticlesPage/model/slices/articlesPageSlice';
+import { pageReducer } from 'widgets/Page';
 
 export function createReduxStore(
   initialState?: StateSchema,
@@ -21,6 +22,7 @@ export function createReduxStore(
     ...asyncReducers,
     counter: counterReducer,
     user: userReducer,
+    page: pageReducer,
   };
 
   const reducerManager = createReducerManager(rootReducers);

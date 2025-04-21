@@ -15,10 +15,12 @@ import { LoginSchema } from 'features/AuthByUsername';
 import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { NavigateFunction } from 'react-router-dom';
+import { PageSchema } from 'widgets/Page';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
+  page: PageSchema;
 
   //async reducers
   loginForm?: LoginSchema;
