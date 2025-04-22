@@ -1,5 +1,4 @@
-import { ArticleList, ArticleView } from 'entities/Article';
-import { ArticleViewSelector } from 'features/ArticleViewSelector/ArticleViewSelector';
+import { ArticleList } from 'entities/Article';
 import { FC, memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/classNames/classNames';
@@ -12,15 +11,16 @@ import Page from 'widgets/Page/ui/Page';
 import {
   getArticlesPageIsLoading,
   getArticlesPageView,
-} from '../model/selectors/getArticlesPageSelectors';
-import { fetchNextArticlesPage } from '../model/services/fetchNextArticles/fetchNextArticlesPage';
-import { initArticlesPage } from '../model/services/initArticlesPage/initArticlesPage';
+} from '../../model/selectors/getArticlesPageSelectors';
+import { fetchNextArticlesPage } from '../../model/services/fetchNextArticles/fetchNextArticlesPage';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import {
-  articlesPageActions,
   articlesPageReducer,
   getArticles,
-} from '../model/slices/articlesPageSlice';
+} from '../../model/slices/articlesPageSlice';
+import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import cls from './ArticlesPage.module.scss';
+import { useSearchParams } from 'react-router-dom';
 
 interface ArticlesPageProps {
   className?: string;
@@ -35,21 +35,15 @@ const ArticlesPage: FC<ArticlesPageProps> = memo(({ className }) => {
   const articles = useSelector(getArticles.selectAll);
   const isLoading = useSelector(getArticlesPageIsLoading);
   const view = useSelector(getArticlesPageView);
+  const [searchParams] = useSearchParams();
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage());
   }, [dispatch]);
 
   useInitialEffect(() => {
-    dispatch(initArticlesPage());
+    dispatch(initArticlesPage(searchParams));
   });
-
-  const onChageView = useCallback(
-    (view: ArticleView) => {
-      dispatch(articlesPageActions.setView(view));
-    },
-    [dispatch]
-  );
 
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
@@ -57,8 +51,13 @@ const ArticlesPage: FC<ArticlesPageProps> = memo(({ className }) => {
         className={classNames(cls.ArticleList, {}, [className])}
         onScrollEnd={onLoadNextPart}
       >
-        <ArticleViewSelector view={view} onViewClick={onChageView} />
-        <ArticleList view={view} articles={articles} isLoading={isLoading} />
+        <ArticlesPageFilters />
+        <ArticleList
+          view={view}
+          articles={articles}
+          isLoading={isLoading}
+          className={cls.list}
+        />
       </Page>
     </DynamicModuleLoader>
   );
