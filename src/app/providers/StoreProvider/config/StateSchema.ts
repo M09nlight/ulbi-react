@@ -12,7 +12,11 @@ import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { AddCommentFormSchema } from 'features/AddNewCommentForm';
 import { LoginSchema } from 'features/AuthByUsername';
-import { ArticleDetailsCommentsSchema } from 'pages/ArticleDetailsPage';
+import {
+  ArticleDetailsCommentsSchema,
+  ArticleDetailsPageSchema,
+  ArticleDetailsRecommendationsSchema,
+} from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { NavigateFunction } from 'react-router-dom';
 import { PageSchema } from 'widgets/Page';
@@ -26,9 +30,9 @@ export interface StateSchema {
   loginForm?: LoginSchema;
   profile?: ProfileSchema;
   articleDetails?: ArticleDetailsSchema;
-  articleDetailsComments?: ArticleDetailsCommentsSchema;
   addCommentForm?: AddCommentFormSchema;
   articlesPage?: ArticlesPageSchema;
+  articleDetailsPage?: ArticleDetailsPageSchema;
 }
 export type StateSchemaKey = keyof StateSchema;
 export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>;
