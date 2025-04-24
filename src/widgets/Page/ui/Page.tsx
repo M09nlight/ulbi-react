@@ -6,7 +6,6 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { pageActions } from '../model/slices/PageSlice';
 import { useLocation } from 'react-router-dom';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { get } from 'http';
 import { useSelector } from 'react-redux';
 import { getPageScrollByPath } from '../model/selectors/page';
 import { StateSchema } from 'app/providers/StoreProvider';

@@ -7,8 +7,8 @@ import Text, { TextSize } from 'shared/ui/Text/Text';
 import { CommentList } from 'entities/Comment';
 import { useDispatch, useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { fetchCommentsByArticleId } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { addCommentForArticle } from 'pages/ArticleDetailsPage/model/services/addCommentForArticle/addCommentForArticle';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import cls from './ArticleDetailsPage.module.scss';
 import {
   articleDetailsCommentsReducer,

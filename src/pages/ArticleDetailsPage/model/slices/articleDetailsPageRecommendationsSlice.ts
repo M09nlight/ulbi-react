@@ -6,7 +6,7 @@ import {
 
 import { StateSchema } from 'app/providers/StoreProvider';
 import { Comment } from 'entities/Comment';
-import { fetchCommentsByArticleId } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { ArticleDetailsRecommendationsSchema } from '../types/ArticleDetailsRecommendationsSchema';
 import { Article } from 'entities/Article';
 import { fetchArticleRecommendations } from '../services/fetchArticleRecommendations/fetchArticleRecommendations';

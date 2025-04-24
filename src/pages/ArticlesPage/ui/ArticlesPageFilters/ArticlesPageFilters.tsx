@@ -21,7 +21,7 @@ import {
   getArticlesPageSort,
   getArticlesPageType,
   getArticlesPageView,
-} from 'pages/ArticlesPage/model/selectors/getArticlesPageSelectors';
+} from '../../model/selectors/getArticlesPageSelectors';
 import ArticleSortSelector from 'entities/Article/ui/ArticleSortSelector/ArticleSortSelector';
 import { ArticleViewSelector } from 'features/ArticleViewSelector/ArticleViewSelector';
 import Input from 'shared/ui/Input/Input';

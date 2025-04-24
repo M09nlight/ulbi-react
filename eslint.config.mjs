@@ -4,6 +4,7 @@ import tseslint from 'typescript-eslint';
 import eslintReact from 'eslint-plugin-react';
 import eslintReactHooks from 'eslint-plugin-react-hooks';
 import eslintReactRefresh from 'eslint-plugin-react-refresh';
+import eslintCheckPath from 'eslint-plugin-check-path-m09blight-plugin';
 // import prettierPlugin from 'eslint-plugin-prettier';
 import eslintConfigPrettier from 'eslint-config-prettier';
 // import i18next from 'eslint-plugin-i18next';
@@ -16,6 +17,7 @@ export default tseslint.config(
       'react-hooks': eslintReactHooks,
       react: eslintReact,
       'react-refresh': eslintReactRefresh,
+      'eslint-plugin-check-path-m09blight-plugin': eslintCheckPath,
       // prettier: prettierPlugin,
       // i18next: i18next,
     },
@@ -47,7 +49,7 @@ export default tseslint.config(
       // ...prettierPlugin.configs.recommended.rules,
       ...eslintConfigPrettier.rules,
       'prefer-const': 'warn',
-      'no-unused-vars': 'warn',
+      'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': 'warn',
       '@typescript-eslint/no-empty-object-type': 'off',
       '@typescript-eslint/ban-ts-comment': 'warn',
@@ -57,6 +59,7 @@ export default tseslint.config(
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'error',
       'no-debugger': 'off',
+      'eslint-plugin-check-path-m09blight-plugin/path-checker': 'error',
       // 'i18next/no-literal-string': [
       //   'error',
       //   { markupOnly: true },
