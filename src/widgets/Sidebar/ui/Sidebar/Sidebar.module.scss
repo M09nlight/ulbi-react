@@ -6,12 +6,11 @@
   transition: width 0.3s;
 }
 
-.swithers {
+.switchers {
   position: absolute;
   bottom: 20px;
   display: flex;
   justify-content: center;
-  align-items: center;
   width: 100%;
 }
 
@@ -27,30 +26,15 @@
 
 .items {
   margin-top: 20px;
-  display: flex;
-  flex-direction: column;
   margin-left: 30px;
-}
-
-.item {
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-}
-
-.link {
-  margin-left: 10px;
-}
-
-.icon {
-  fill: var(--inverted-primary-color);
 }
 
 .collapsed {
   width: var(--sidebar-width-collapsed);
 
-  .swithers {
+  .switchers {
     flex-direction: column;
+    align-items: center;
   }
 
   .lang {
