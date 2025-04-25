@@ -35,7 +35,7 @@ const CurrencySelect: FC<CurrencySelectProps> = memo(
         onChange={onChangeHander}
         readonly={readonly}
         defaultValue={t('enterCurrency')}
-        direction="top"
+        direction="top right"
         label="Укажите валюту"
       />
     );
