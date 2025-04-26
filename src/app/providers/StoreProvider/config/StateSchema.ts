@@ -8,7 +8,7 @@ import {
 import { AxiosInstance } from 'axios';
 import { ArticleDetailsSchema } from 'entities/Article';
 import { CounterSchema } from 'entities/Counter';
-import { ProfileSchema } from 'entities/Profile';
+import { ProfileSchema } from 'features/editableProfileCard';
 import { UserSchema } from 'entities/User';
 import { AddCommentFormSchema } from 'features/AddNewCommentForm';
 import { LoginSchema } from 'features/AuthByUsername';
@@ -19,12 +19,14 @@ import {
 } from 'pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { NavigateFunction } from 'react-router-dom';
+import { rtkApi } from 'shared/api/rtkApi';
 import { PageSchema } from 'widgets/Page';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
   page: PageSchema;
+  [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 
   //async reducers
   loginForm?: LoginSchema;
