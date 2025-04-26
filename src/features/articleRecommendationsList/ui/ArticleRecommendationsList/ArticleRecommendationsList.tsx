@@ -5,6 +5,7 @@ import { classNames } from 'shared/lib/classNames/classNames';
 import { VStack } from 'shared/ui/Stack';
 import Text, { TextSize } from 'shared/ui/Text/Text';
 import { useGetArticleRecommendationsListQuery } from '../../api/articleRecommendationsApi';
+import { error } from 'console';
 
 interface ArticleRecommendationsListProps {
   className?: string;
@@ -15,12 +16,16 @@ export const ArticleRecommendationsList = memo(
     const { className } = props;
     const { t } = useTranslation();
 
-    const { isLoading, data: articles } =
-      useGetArticleRecommendationsListQuery(3);
+    const {
+      isLoading,
+      data: articles,
+      isError,
+      error,
+    } = useGetArticleRecommendationsListQuery(3);
 
     console.log(articles);
 
-    if (isLoading) {
+    if (isLoading || !articles || error) {
       return null;
     }
 
@@ -31,6 +36,7 @@ export const ArticleRecommendationsList = memo(
           articles={articles}
           isLoading={isLoading}
           target="_blank"
+          virtualized={false}
         />
       </VStack>
     );
