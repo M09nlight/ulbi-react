@@ -1,0 +1,3 @@
+# Browsers that we support (after metrics change values) babel собирает бандлы для этих браузеров
+defaults
+not IE 11
