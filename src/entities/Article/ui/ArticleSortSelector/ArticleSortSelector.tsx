@@ -30,6 +30,7 @@ const ArticleSortSelector: FC<ArticleSortSelectorProps> = ({
     ],
     [t]
   );
+
   const sortFieldOptions = useMemo<SelectOption<ArticleSortField>[]>(
     () => [
       { value: ArticleSortField.CREATED, content: t('дате создания') },
