@@ -1,12 +1,12 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useMemo } from 'react';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Card } from 'shared/ui/Card/Card';
-import { SortOrder } from 'shared/types';
-import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
-import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Card } from '@/shared/ui/Card/Card';
+import { SortOrder } from '@/shared/types';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
+import { TabItem, Tabs } from '@/shared/ui/Tabs/Tabs';
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import cls from './ArticlesPageFilters.module.scss';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
@@ -17,11 +17,11 @@ import {
   getArticlesPageType,
   getArticlesPageView,
 } from '../../model/selectors/getArticlesPageSelectors';
-import ArticleSortSelector from 'entities/Article/ui/ArticleSortSelector/ArticleSortSelector';
-import { ArticleViewSelector } from 'features/ArticleViewSelector/ArticleViewSelector';
-import Input from 'shared/ui/Input/Input';
-import { ArticleTypeTabs } from 'entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs';
-import { ArticleSortField, ArticleType, ArticleView } from 'entities/Article';
+import ArticleSortSelector from '@/entities/Article/ui/ArticleSortSelector/ArticleSortSelector';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector/ArticleViewSelector';
+import Input from '@/shared/ui/Input/Input';
+import { ArticleTypeTabs } from '@/entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs';
+import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
 
 interface ArticlesPageFiltersProps {
   className?: string;

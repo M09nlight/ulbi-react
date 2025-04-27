@@ -1,14 +1,14 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { ArticleDetails, ArticleList } from 'entities/Article';
+import { ArticleDetails, ArticleList } from '@/entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
-import { CommentList } from 'entities/Comment';
+import { CommentList } from '@/entities/Comment';
 import { useDispatch, useSelector } from 'react-redux';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { VStack } from 'shared/ui/Stack';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { VStack } from '@/shared/ui/Stack';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import cls from './ArticleDetailsPage.module.scss';
@@ -26,12 +26,12 @@ import { fetchArticleRecommendations } from '../../model/services/fetchArticleRe
 import { articleDetailsPageReducer } from '../../model/slices';
 import DynamicModuleLoader, {
   ReducersList,
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { Page } from 'widgets/Page';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { Page } from '@/widgets/Page';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
-import Text, { TextSize } from 'shared/ui/Text/Text';
-import { AddCommentForm } from 'features/AddNewCommentForm';
-import { ArticleRecommendationsList } from 'features/articleRecommendationsList';
+import Text, { TextSize } from '@/shared/ui/Text/Text';
+import { AddCommentForm } from '@/features/AddNewCommentForm';
+import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import ArticleDetailsComments from '../ArticleDetailsComments/ArticleDetailsComments';
 
 interface ArticleDetailsPageProps {

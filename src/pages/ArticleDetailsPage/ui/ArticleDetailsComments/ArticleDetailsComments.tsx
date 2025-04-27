@@ -1,16 +1,16 @@
-import { AddCommentForm } from 'features/AddNewCommentForm';
+import { AddCommentForm } from '@/features/AddNewCommentForm';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
 import { FC, Suspense, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import Text, { TextSize } from 'shared/ui/Text/Text';
-import { CommentList } from 'entities/Comment';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import Text, { TextSize } from '@/shared/ui/Text/Text';
+import { CommentList } from '@/entities/Comment';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { VStack } from 'shared/ui/Stack';
-import Loader from 'shared/ui/Loader/Loader';
+import { VStack } from '@/shared/ui/Stack';
+import Loader from '@/shared/ui/Loader/Loader';
 
 interface ArticleDetailsCommentsProps {
   id?: string;

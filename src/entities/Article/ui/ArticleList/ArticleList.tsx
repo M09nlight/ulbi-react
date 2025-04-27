@@ -1,8 +1,8 @@
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { ArticleListItemSkeleton } from '../../ui/ArticleListItem/ArticleListItemSkeleton';
-import Text, { TextSize } from 'shared/ui/Text/Text';
+import Text, { TextSize } from '@/shared/ui/Text/Text';
 import ArticleListItem from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
 import { Article } from '../../model/types/article';
@@ -12,7 +12,7 @@ import {
   ListRowProps,
   WindowScroller,
 } from 'react-virtualized';
-import { PAGE_ID } from 'widgets/Page/ui/Page';
+import { PAGE_ID } from '@/widgets/Page/ui/Page';
 import { ArticleView } from '../../model/consts/articleConsts';
 
 interface ArticleListProps {

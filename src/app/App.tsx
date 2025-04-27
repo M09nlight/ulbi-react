@@ -1,11 +1,11 @@
 import { FC, Suspense, useEffect, useState } from 'react';
-import { classNames } from 'shared/lib/classNames/classNames';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { AppRouter } from './providers/router';
-import { Navbar } from 'widgets/Navbar';
-import { Sidebar } from 'widgets/Sidebar';
-import { userActions } from 'entities/User/model/slice/userSlice';
+import { Navbar } from '@/widgets/Navbar';
+import { Sidebar } from '@/widgets/Sidebar';
+import { userActions } from '@/entities/User/model/slice/userSlice';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUserInited } from 'entities/User';
+import { getUserInited } from '@/entities/User';
 
 interface AppProps {}
 
