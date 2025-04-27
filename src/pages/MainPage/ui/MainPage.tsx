@@ -5,6 +5,8 @@ import { useTranslation } from 'react-i18next';
 import { ListBox } from '@/shared/ui/ListBox/ListBox';
 import { HStack } from '@/shared/ui/Stack';
 import Page from '@/widgets/Page/ui/Page';
+import { StarRating } from '@/shared/ui/StarRating/StarRating';
+import { RatingCard } from '@/entities/Rating';
 
 interface MainPageProps {}
 
@@ -28,6 +30,7 @@ const MainPage: FC<MainPageProps> = ({}) => {
           ]}
         />
       </HStack>
+      <RatingCard title="title" feedbackTitle="feedbackTitle" hasFeedback />
     </Page>
   );
 };
