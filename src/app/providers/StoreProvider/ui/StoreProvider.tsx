@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 interface StoreProviderProps {
   initialState?: DeepPartial<StateSchema>;
   asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>;
+  children: React.ReactNode;
 }
 
 const StoreProvider: FC<StoreProviderProps> = ({

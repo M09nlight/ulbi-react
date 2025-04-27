@@ -14,6 +14,7 @@ import { useThrottle } from 'shared/lib/hooks/useThrottle/useThrottle';
 interface PageProps {
   className?: string;
   onScrollEnd?: () => void;
+  children: React.ReactNode;
 }
 
 export const PAGE_ID = 'PAGE_ID';

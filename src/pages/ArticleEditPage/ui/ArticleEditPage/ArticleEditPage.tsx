@@ -17,7 +17,7 @@ const ArticleEditPage: FC<ArticleEditPageProps> = ({ className }) => {
     <div className={classNames(cls.ArticlesPageFilters, {}, [className])}>
       {isEdit ? t('Редактирование статьи') + ` ${id}` : t('Создание статьи')}
       {/* логика по созданию и редактированию можно вынести в виджет */}
-      {ArticleEditPage}
+      {'ArticleEditPage'}
     </div>
   );
 };
