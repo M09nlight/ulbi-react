@@ -3,9 +3,9 @@ import { ArticleDetailsCommentsSchema } from './model/types/ArticleDetailsCommen
 import { ArticleDetailsRecommendationsSchema } from './model/types/ArticleDetailsRecommendationsSchema';
 import { ArticleDetailsPageAsync as ArticleDetailsPage } from './ui/ArticleDetailsPage/ArticleDetailsPage.async';
 
-export {
+export { ArticleDetailsPage };
+export type {
   ArticleDetailsCommentsSchema,
-  ArticleDetailsPage,
   ArticleDetailsPageSchema,
   ArticleDetailsRecommendationsSchema,
 };
