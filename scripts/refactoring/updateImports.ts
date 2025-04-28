@@ -25,4 +25,4 @@ files.forEach((sourceFile) => {
 });
 
 project.save();
-//start with ts-node .\scripts\updateImports.ts
+//start with ts-node .\scripts\refactoring\updateImports.ts

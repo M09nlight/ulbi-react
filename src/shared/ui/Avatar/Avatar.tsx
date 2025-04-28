@@ -9,7 +9,7 @@ interface AvatarProps {
   alt?: string;
 }
 
-const Avatar: FC<AvatarProps> = ({ src, className, size, alt }) => {
+export const Avatar: FC<AvatarProps> = ({ src, className, size, alt }) => {
   const mods: Mods = {};
   const styles = useMemo<CSSProperties>(
     () => ({
@@ -27,5 +27,3 @@ const Avatar: FC<AvatarProps> = ({ src, className, size, alt }) => {
     />
   );
 };
-
-export default Avatar;

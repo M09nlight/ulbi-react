@@ -22,7 +22,7 @@ interface InputProps extends HTMLInputProps {
   readonly?: boolean;
 }
 
-const Input: FC<InputProps> = memo(
+export const Input: FC<InputProps> = memo(
   ({
     className,
     value,
@@ -91,5 +91,3 @@ const Input: FC<InputProps> = memo(
     );
   }
 );
-
-export default Input;

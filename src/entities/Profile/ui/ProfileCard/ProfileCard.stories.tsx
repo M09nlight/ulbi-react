@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-import AvatarImg from '@/shared/ui/Avatar/AvatarImg.jpg';
+// import { AvatarImg } from '@/shared/ui/Avatar';
 import ProfileCard from './ProfileCard';
 
 export default {
@@ -27,7 +27,7 @@ Primary.args = {
     first: 'asd',
     city: 'asf',
     currency: Currency.USD,
-    avatar: AvatarImg,
+    avatar: 'AvatarImg',
   },
 };
 

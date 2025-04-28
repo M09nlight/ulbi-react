@@ -15,7 +15,7 @@ interface SelectProps<T extends string> {
   readonly?: boolean;
 }
 
-const Select = <T extends string>(props: SelectProps<T>) => {
+export const Select = <T extends string>(props: SelectProps<T>) => {
   const { className, label, options, onChange, value, readonly } = props;
 
   const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {

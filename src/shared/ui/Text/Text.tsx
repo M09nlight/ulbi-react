@@ -34,7 +34,7 @@ const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
   [TextSize.L]: 'h1',
 };
 
-const Text: FC<TextProps> = memo(
+export const Text: FC<TextProps> = memo(
   ({
     className,
     title,
@@ -71,5 +71,3 @@ const Text: FC<TextProps> = memo(
     );
   }
 );
-
-export default Text;
