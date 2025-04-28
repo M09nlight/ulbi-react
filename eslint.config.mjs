@@ -72,7 +72,14 @@ export default tseslint.config(
       ],
       'eslint-plugin-check-path-m09blight-plugin/public-api-imports': [
         'error',
-        { alias: '@' },
+        {
+          alias: '@',
+          testFilesPatterns: [
+            '**/*.test.*',
+            '**/*.test.*',
+            '**/StoreDecorator.tsx',
+          ],
+        },
       ],
       // 'i18next/no-literal-string': [
       //   'error',
@@ -84,7 +91,7 @@ export default tseslint.config(
       // 'import/no-unresolved': 'off',
       // 'import/prefer-default-export': 'off',
       // 'react/require-default-props': 'off',
-      // 'react/react-in-jsx-scope': 'off',
+      // 'react/react-in-jsx-scope': 'off',P
       // 'react/jsx-props-no-spreading': 'warn',
       // 'react/function-component-definition': 'off',
       // 'no-shadow': 'off',
