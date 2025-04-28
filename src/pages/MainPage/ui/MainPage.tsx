@@ -1,11 +1,9 @@
-import { BugButton } from '@/app/providers/ErrorBoundary';
-import { Counter } from '@/entities/Counter';
-import { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ListBox } from '@/shared/ui/ListBox/ListBox';
-import { HStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
-import { StarRating } from '@/shared/ui/StarRating/StarRating';
+import { Counter } from '@/entities/Counter';
+import { HStack } from '@/shared/ui/Stack';
+import { ListBox } from '@/shared/ui/Popups';
 import { RatingCard } from '@/entities/Rating';
 
 interface MainPageProps {}
@@ -14,7 +12,7 @@ const MainPage: FC<MainPageProps> = ({}) => {
   const { t, i18n } = useTranslation();
   return (
     <Page>
-      <BugButton />
+      {/* <BugButton /> */}
       <div>{t('main')}</div>
       <Counter />
       <HStack>

@@ -81,6 +81,13 @@ export default tseslint.config(
           ],
         },
       ],
+      'eslint-plugin-check-path-m09blight-plugin/layer-imports': [
+        'error',
+        {
+          alias: '@',
+          ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
+        },
+      ],
       // 'i18next/no-literal-string': [
       //   'error',
       //   { markupOnly: true },

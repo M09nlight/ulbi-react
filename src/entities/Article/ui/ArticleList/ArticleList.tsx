@@ -12,7 +12,6 @@ import {
   ListRowProps,
   WindowScroller,
 } from 'react-virtualized';
-import { PAGE_ID } from '@/widgets/Page';
 import { ArticleView } from '../../model/consts/articleConsts';
 
 interface ArticleListProps {
@@ -82,7 +81,9 @@ export const ArticleList = memo((props: ArticleListProps) => {
   }
 
   return (
-    <WindowScroller scrollElement={document.getElementById(PAGE_ID) as Element}>
+    <WindowScroller
+      scrollElement={document.getElementById('PAGE_ID') as Element}
+    >
       {({
         height,
         width,

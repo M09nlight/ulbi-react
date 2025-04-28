@@ -1,10 +1,14 @@
 import { Story } from '@storybook/react';
-import { Theme, ThemeProvider } from '@/app/providers/ThemeProvider';
 
-export const ThemeDecorator = (theme: Theme) => (StoryComponent: Story) => (
+// eslint-disable-next-line eslint-plugin-check-path-m09blight-plugin/layer-imports
+import { ThemeProvider } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/shared/consts/theme';
+
+export const ThemeDecorator = (theme: Theme) => (StoryComponent: Story) =>
+  (
     <ThemeProvider initialTheme={theme}>
-        <div className={`app ${theme}`}>
-            <StoryComponent />
-        </div>
+      <div className={`app ${theme}`}>
+        <StoryComponent />
+      </div>
     </ThemeProvider>
-);
+  );

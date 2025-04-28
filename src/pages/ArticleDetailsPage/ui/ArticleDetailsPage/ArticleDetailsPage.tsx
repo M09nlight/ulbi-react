@@ -1,39 +1,20 @@
+import { ArticleDetails } from '@/entities/Article';
+import { ArticleRating } from '@/features/articleRating';
+import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
-import { memo, useCallback } from 'react';
-import { ArticleDetails, ArticleList } from '@/entities/Article';
-import { useNavigate, useParams } from 'react-router-dom';
-import { CommentList } from '@/entities/Comment';
-import { useDispatch, useSelector } from 'react-redux';
-import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
-import { VStack } from '@/shared/ui/Stack';
-import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
-import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import cls from './ArticleDetailsPage.module.scss';
-import {
-  articleDetailsCommentsReducer,
-  getArticleComments,
-} from '../../model/slices/articleDetailsCommentsSlice';
-import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
-import {
-  articleDetailsPageRecommendationsReducer,
-  getArticleRecommendations,
-} from '../../model/slices/articleDetailsPageRecommendationsSlice';
-import { getArticleRecommendationsIsLoading } from '../../model/selectors/recommendations';
-import { fetchArticleRecommendations } from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
-import { articleDetailsPageReducer } from '../../model/slices';
 import DynamicModuleLoader, {
   ReducersList,
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { VStack } from '@/shared/ui/Stack';
 import { Page } from '@/widgets/Page';
-import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
-import Text, { TextSize } from '@/shared/ui/Text/Text';
-import { AddCommentForm } from '@/features/AddCommentForm';
-import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
+import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
+import { useParams } from 'react-router-dom';
+import { articleDetailsPageReducer } from '../../model/slices';
 import ArticleDetailsComments from '../ArticleDetailsComments/ArticleDetailsComments';
-import { ArticleRating } from '@/features/articleRating';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
   className?: string;
