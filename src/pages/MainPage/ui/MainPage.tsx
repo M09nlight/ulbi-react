@@ -11,7 +11,7 @@ interface MainPageProps {}
 const MainPage: FC<MainPageProps> = ({}) => {
   const { t, i18n } = useTranslation();
   return (
-    <Page>
+    <Page data-testid="MainPage">
       {/* <BugButton /> */}
       <div>{t('main')}</div>
       <Counter />

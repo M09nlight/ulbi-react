@@ -10,8 +10,9 @@ import { useSelector } from 'react-redux';
 import { getPageScrollByPath } from '../model/selectors/page';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
+import { TestProps } from '@/shared/types/tests';
 
-interface PageProps {
+interface PageProps extends TestProps {
   className?: string;
   onScrollEnd?: () => void;
   children: React.ReactNode;
@@ -19,7 +20,12 @@ interface PageProps {
 
 export const PAGE_ID = 'PAGE_ID';
 
-const Page: FC<PageProps> = ({ className, children, onScrollEnd }) => {
+const Page: FC<PageProps> = ({
+  className,
+  children,
+  onScrollEnd,
+  'data-testid': dataTestId,
+}) => {
   const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
   const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
   const dispatch = useAppDispatch();
@@ -54,6 +60,7 @@ const Page: FC<PageProps> = ({ className, children, onScrollEnd }) => {
       className={classNames(cls.Page, {}, [className])}
       onScroll={onScroll}
       id={PAGE_ID}
+      data-testid={dataTestId ?? 'Page'}
     >
       {children}
       {onScrollEnd ? (

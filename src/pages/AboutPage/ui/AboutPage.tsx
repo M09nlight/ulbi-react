@@ -9,7 +9,7 @@ const AboutPage: FC<AboutPageProps> = ({}) => {
   const { t } = useTranslation();
 
   return (
-    <Page>
+    <Page data-testid={'AboutPage'}>
       {t('about')}
       <Counter />
     </Page>
