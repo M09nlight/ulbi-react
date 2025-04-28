@@ -12,7 +12,7 @@ import {
   ListRowProps,
   WindowScroller,
 } from 'react-virtualized';
-import { PAGE_ID } from '@/widgets/Page/ui/Page';
+import { PAGE_ID } from '@/widgets/Page';
 import { ArticleView } from '../../model/consts/articleConsts';
 
 interface ArticleListProps {

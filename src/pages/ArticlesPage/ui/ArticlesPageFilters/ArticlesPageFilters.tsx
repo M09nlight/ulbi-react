@@ -17,10 +17,10 @@ import {
   getArticlesPageType,
   getArticlesPageView,
 } from '../../model/selectors/getArticlesPageSelectors';
-import ArticleSortSelector from '@/entities/Article/ui/ArticleSortSelector/ArticleSortSelector';
-import { ArticleViewSelector } from '@/features/ArticleViewSelector/ArticleViewSelector';
+import { ArticleSortSelector } from '@/entities/Article';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 import Input from '@/shared/ui/Input/Input';
-import { ArticleTypeTabs } from '@/entities/Article/ui/ArticleTypeTabs/ArticleTypeTabs';
+import { ArticleTypeTabs } from '@/entities/Article';
 import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
 
 interface ArticlesPageFiltersProps {

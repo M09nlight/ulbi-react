@@ -1,25 +1,17 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { useTranslation } from 'react-i18next';
-import React, { memo, useCallback, useState } from 'react';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { getUserAuthData } from '@/entities/User';
 import { LoginModal } from '@/features/AuthByUsername';
-import { useDispatch, useSelector } from 'react-redux';
-import {
-  getUserAuthData,
-  isUserAdmin,
-  isUserManager,
-  userActions,
-} from '@/entities/User';
-import Text, { TextTheme } from '@/shared/ui/Text/Text';
-import AppLink, { AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
-import Avatar from '@/shared/ui/Avatar/Avatar';
-import { HStack } from '@/shared/ui/Stack';
-import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropdown } from '@/features/avatarDropdown';
+import { NotificationButton } from '@/features/notificationButton';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { classNames } from '@/shared/lib/classNames/classNames';
+import AppLink, { AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
+import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
+import { HStack } from '@/shared/ui/Stack';
+import Text, { TextTheme } from '@/shared/ui/Text/Text';
+import { memo, useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import cls from './Navbar.module.scss';
-import { Drawer } from '@/shared/ui/Drawer/Drawer';
-import { NotificationList } from '@/entities/Notification';
 
 interface NavbarProps {
   className?: string;
@@ -56,7 +48,6 @@ const Navbar = memo(({ className }: NavbarProps) => {
           {t('Создать статью')}
         </AppLink>
         <HStack gap="16" className={cls.actions}>
-        
           <NotificationButton />
           <AvatarDropdown />
         </HStack>

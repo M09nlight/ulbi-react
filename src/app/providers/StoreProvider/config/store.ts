@@ -1,19 +1,16 @@
+import { counterReducer } from '@/entities/Counter';
+import { userReducer } from '@/entities/User';
+import { $api } from '@/shared/api/api';
+import { rtkApi } from '@/shared/api/rtkApi';
+import { pageReducer } from '@/widgets/Page';
 import {
   CombinedState,
   configureStore,
-  getDefaultMiddleware,
   Reducer,
   ReducersMapObject,
 } from '@reduxjs/toolkit';
-import { StateSchema, ThunkExtraArg } from './StateSchema';
-import { counterReducer } from '@/entities/Counter';
-import { userReducer } from '@/entities/User';
 import { createReducerManager } from './reducerManager';
-import { $api } from '@/shared/api/api';
-import { NavigateFunction } from 'react-router-dom';
-import { articlesPageReducer } from '@/pages/ArticlesPage/model/slices/articlesPageSlice';
-import { pageReducer } from '@/widgets/Page';
-import { rtkApi } from '@/shared/api/rtkApi';
+import { StateSchema, ThunkExtraArg } from './StateSchema';
 
 export function createReduxStore(
   initialState?: StateSchema,

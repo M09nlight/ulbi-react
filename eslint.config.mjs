@@ -65,11 +65,15 @@ export default tseslint.config(
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'error',
       'no-debugger': 'off',
+      // 'ulbi-tv-plugin/path-checker': ['error', { alias: '@' }],
       'eslint-plugin-check-path-m09blight-plugin/path-checker': [
         'error',
         { alias: '@' },
       ],
-      // 'ulbi-tv-plugin/path-checker': ['error', { alias: '@' }],
+      'eslint-plugin-check-path-m09blight-plugin/public-api-imports': [
+        'error',
+        { alias: '@' },
+      ],
       // 'i18next/no-literal-string': [
       //   'error',
       //   { markupOnly: true },
