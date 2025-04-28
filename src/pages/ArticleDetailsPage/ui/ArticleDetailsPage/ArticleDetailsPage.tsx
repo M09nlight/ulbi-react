@@ -30,7 +30,7 @@ import DynamicModuleLoader, {
 import { Page } from '@/widgets/Page';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import Text, { TextSize } from '@/shared/ui/Text/Text';
-import { AddCommentForm } from '@/features/AddNewCommentForm';
+import { AddCommentForm } from '@/features/AddCommentForm';
 import { ArticleRecommendationsList } from '@/features/articleRecommendationsList';
 import ArticleDetailsComments from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleRating } from '@/features/articleRating';

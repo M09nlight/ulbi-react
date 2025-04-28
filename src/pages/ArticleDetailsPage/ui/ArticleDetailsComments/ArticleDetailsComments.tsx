@@ -1,4 +1,4 @@
-import { AddCommentForm } from '@/features/AddNewCommentForm';
+import { AddCommentForm } from '@/features/AddCommentForm';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comments';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { getArticleComments } from '../../model/slices/articleDetailsCommentsSlice';
