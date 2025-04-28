@@ -13,12 +13,9 @@ import { UserSchema } from '@/entities/User';
 import { AddCommentFormSchema } from '@/features/AddCommentForm';
 import { LoginSchema } from '@/features/AuthByUsername';
 import {
-  ArticleDetailsCommentsSchema,
   ArticleDetailsPageSchema,
-  ArticleDetailsRecommendationsSchema,
 } from '@/pages/ArticleDetailsPage';
 import { ArticlesPageSchema } from '@/pages/ArticlesPage';
-import { NavigateFunction } from 'react-router-dom';
 import { rtkApi } from '@/shared/api/rtkApi';
 import { PageSchema } from '@/widgets/Page';
 

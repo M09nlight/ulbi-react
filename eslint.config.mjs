@@ -4,6 +4,7 @@ import tseslint from 'typescript-eslint';
 import eslintReact from 'eslint-plugin-react';
 import eslintReactHooks from 'eslint-plugin-react-hooks';
 import eslintReactRefresh from 'eslint-plugin-react-refresh';
+import unUsedImports from 'eslint-plugin-unused-imports';
 
 import eslintCheckPath from 'eslint-plugin-check-path-m09blight-plugin';
 // import eslintCheckPath from 'eslint-plugin-ulbi-tv-plugin';
@@ -22,6 +23,7 @@ export default tseslint.config(
       'react-refresh': eslintReactRefresh,
 
       'eslint-plugin-check-path-m09blight-plugin': eslintCheckPath,
+      'unused-imports': unUsedImports,
       // 'ulbi-tv-plugin': eslintCheckPath,
 
       // prettier: prettierPlugin,
@@ -88,6 +90,7 @@ export default tseslint.config(
           ignoreImportPatterns: ['**/StoreProvider', '**/testing'],
         },
       ],
+      'unused-imports/no-unused-imports': 'error',
       // 'i18next/no-literal-string': [
       //   'error',
       //   { markupOnly: true },

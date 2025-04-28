@@ -5,7 +5,6 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 import { VStack } from '@/shared/ui/Stack';
 import { Text, TextSize } from '@/shared/ui/Text';
 import { useGetArticleRecommendationsListQuery } from '../../api/articleRecommendationsApi';
-import { error } from 'console';
 
 interface ArticleRecommendationsListProps {
   className?: string;

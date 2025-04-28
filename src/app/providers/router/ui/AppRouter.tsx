@@ -1,5 +1,5 @@
 import { getUserAuthData } from '@/entities/User';
-import React, { memo, Suspense, useCallback, useMemo } from 'react';
+import React, { memo, Suspense, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import { PageLoader } from '@/widgets/PageLoader';

@@ -7,7 +7,6 @@ import ArticleListItem from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
 import { Article } from '../../model/types/article';
 import {
-  AutoSizer,
   List,
   ListRowProps,
   WindowScroller,

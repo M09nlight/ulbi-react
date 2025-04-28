@@ -6,7 +6,6 @@ import { Profile } from '@/entities/Profile';
 import { componentRender } from '@/shared/lib/tests/componentRender/componentRender';
 import { profileReducer } from '../../model/slice/profileSlice';
 import { EditableProfileCard } from './EditableProfileCard';
-import exp from 'constants';
 import { $api } from '@/shared/api/api';
 
 const profile: Profile = {

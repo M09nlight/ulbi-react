@@ -1,4 +1,4 @@
-import { ReactNode, Reducer } from 'react';
+import { ReactNode } from 'react';
 import { render } from '@testing-library/react';
 import { I18nextProvider } from 'react-i18next';
 import { MemoryRouter } from 'react-router-dom';
