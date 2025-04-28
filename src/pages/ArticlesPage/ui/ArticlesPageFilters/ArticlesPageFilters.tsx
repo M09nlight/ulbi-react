@@ -16,11 +16,11 @@ import {
   getArticlesPageType,
   getArticlesPageView,
 } from '../../model/selectors/getArticlesPageSelectors';
-import { ArticleSortSelector } from '@/entities/Article';
 import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 import { Input } from '@/shared/ui/Input';
 import { ArticleTypeTabs } from '@/entities/Article';
 import { ArticleSortField, ArticleType, ArticleView } from '@/entities/Article';
+import { ArticleSortSelector } from '@/features/ArticleSortSelector';
 
 interface ArticlesPageFiltersProps {
   className?: string;
