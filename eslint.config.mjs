@@ -4,9 +4,12 @@ import tseslint from 'typescript-eslint';
 import eslintReact from 'eslint-plugin-react';
 import eslintReactHooks from 'eslint-plugin-react-hooks';
 import eslintReactRefresh from 'eslint-plugin-react-refresh';
-import eslintCheckPath from 'eslint-plugin-check-path-m09blight-plugin';
-// import prettierPlugin from 'eslint-plugin-prettier';
+
+// import eslintCheckPath from 'eslint-plugin-check-path-m09blight-plugin'; //don't work for aliases
+import eslintCheckPath from 'eslint-plugin-ulbi-tv-plugin'; //don't work for aliases
+
 import eslintConfigPrettier from 'eslint-config-prettier';
+// import prettierPlugin from 'eslint-plugin-prettier';
 // import i18next from 'eslint-plugin-i18next';
 
 /** @type {import('eslint').Linter.Config[]} */
@@ -17,7 +20,10 @@ export default tseslint.config(
       'react-hooks': eslintReactHooks,
       react: eslintReact,
       'react-refresh': eslintReactRefresh,
-      'eslint-plugin-check-path-m09blight-plugin': eslintCheckPath,
+
+      // 'eslint-plugin-check-path-m09blight-plugin': eslintCheckPath, //don't work for aliases
+      'ulbi-tv-plugin': eslintCheckPath, //don't work for aliases
+
       // prettier: prettierPlugin,
       // i18next: i18next,
     },
@@ -59,7 +65,12 @@ export default tseslint.config(
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'error',
       'no-debugger': 'off',
-      'eslint-plugin-check-path-m09blight-plugin/path-checker': 'error',
+      // 'eslint-plugin-check-path-m09blight-plugin/path-checker': [
+      //   //don't work for aliases
+      //   'error',
+      //   { alias: '@' },
+      // ],
+      'ulbi-tv-plugin/path-checker': ['error', { alias: '@' }], //don't work for aliases
       // 'i18next/no-literal-string': [
       //   'error',
       //   { markupOnly: true },

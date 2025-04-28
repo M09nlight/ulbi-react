@@ -16,7 +16,7 @@ import {
 import {
   getAddCommentFormError,
   getAddCommentFormText,
-} from '../../model/selectors/addCommentFormSelectors';
+} from '@/features/AddCommentForm/model/selectors/addCommentFormSelectors';
 import cls from './AddCommentForm.module.scss';
 
 export interface AddCommentFormProps {
