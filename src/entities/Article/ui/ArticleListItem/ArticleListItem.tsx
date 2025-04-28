@@ -17,6 +17,8 @@ import {
   ArticleView,
 } from '../../model/consts/articleConsts';
 import { getRouteArticleDetails } from '@/shared/consts/router';
+import { AppImage } from '@/shared/ui/AppImage';
+import { Skeleton } from '@/shared/ui/Skeleton';
 
 interface ArticleListItemProps {
   className?: string;
@@ -55,7 +57,12 @@ const ArticleListItem = memo((props: ArticleListItemProps) => {
           </div>
           <Text title={article.title} className={cls.title} />
           {types}
-          <img src={article.img} className={cls.img} alt={article.title} />
+          <AppImage
+            alt={article.title}
+            src={article.img}
+            className={cls.img}
+            fallback={<Skeleton width={'100%'} height={250} />}
+          />
           {textBlock && (
             <ArticleTextBlockComponent
               block={textBlock}
@@ -81,7 +88,12 @@ const ArticleListItem = memo((props: ArticleListItemProps) => {
     >
       <Card className={cls.card}>
         <div className={cls.imageWrapper}>
-          <img alt={article.title} src={article.img} className={cls.img} />
+          <AppImage
+            alt={article.title}
+            src={article.img}
+            className={cls.img}
+            fallback={<Skeleton width={200} height={200} />}
+          />
           <Text text={article.createdAt} className={cls.date} />
         </div>
         <div className={cls.infoWrapper}>
