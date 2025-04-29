@@ -9,7 +9,8 @@ module.exports = {
       },
     },
     '@storybook/addon-interactions',
-    'storybook-addon-mock/register',
+    // 'storybook-addon-mock/register',
+    'storybook-addon-mock', //new v
     'storybook-addon-themes',
   ],
   framework: '@storybook/react',

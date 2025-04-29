@@ -36,6 +36,15 @@ const options = {
   },
 };
 
+jest.mock('@/shared/api/api', () => ({
+  $api: {
+    get: jest.fn(),
+    post: jest.fn(),
+    put: jest.fn().mockResolvedValue({}),
+    delete: jest.fn(),
+  },
+}));
+
 describe('features/EditableProfileCard', () => {
   test('Режим рид онли должен переключиться', async () => {
     componentRender(<EditableProfileCard id="1" />, options);
@@ -84,19 +93,17 @@ describe('features/EditableProfileCard', () => {
   });
 
   test('Если нет ошибок валидации, то на сервер должен уйти PUT request', async () => {
-    const mockedPutReq = jest.spyOn($api, 'put');
-
     componentRender(<EditableProfileCard id="1" />, options);
     await userEvent.click(
       screen.getByTestId('EditableProfileCardHeader.EditButton')
     );
-
+  
     await userEvent.type(screen.getByTestId('ProfileCard.firstname'), 'user');
-
+  
     await userEvent.click(
       screen.getByTestId('EditableProfileCardHeader.SaveButton')
     );
-
-    expect(mockedPutReq).toHaveBeenCalled();
+  
+    expect($api.put).toHaveBeenCalled();
   });
 });
