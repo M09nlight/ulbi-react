@@ -3,7 +3,7 @@
 
 #npm run build:prod
 # npm run lint:ts
-npx lint-staged # faster
+npx lint-staged # faster (check only changed files)
 #npm run lint:scss
 #npm run test:unit
 #npm run storybook:build
