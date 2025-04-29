@@ -89,5 +89,5 @@ export const Input: FC<InputProps> = memo(
         </div>
       </div>
     );
-  }
+  },
 );

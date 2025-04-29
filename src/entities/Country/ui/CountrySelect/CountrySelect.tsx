@@ -24,7 +24,7 @@ const CountrySelect: FC<CountrySelectProps> = memo(
       (value: string) => {
         onChange?.(value as Country);
       },
-      [onChange]
+      [onChange],
     );
 
     return (
@@ -47,7 +47,7 @@ const CountrySelect: FC<CountrySelectProps> = memo(
     //     readonly={readonly}
     //   />
     // );
-  }
+  },
 );
 
 export default CountrySelect;

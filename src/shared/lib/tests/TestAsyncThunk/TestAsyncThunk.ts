@@ -3,7 +3,7 @@ import { StateSchema } from '@/app/providers/StoreProvider';
 import axios, { AxiosStatic } from 'axios';
 
 type ActionCreatorType<Return, Arg, RejectValue> = (
-  arg: Arg
+  arg: Arg,
 ) => AsyncThunkAction<
   Return,
   Arg,
@@ -25,7 +25,7 @@ export class TestAsyncThunk<Return, Arg, RejectValue> {
 
   constructor(
     actionCreator: ActionCreatorType<Return, Arg, RejectValue>,
-    state?: DeepPartial<StateSchema> //set default state value
+    state?: DeepPartial<StateSchema>, //set default state value
   ) {
     this.actionCreator = actionCreator;
     this.dispatch = jest.fn();

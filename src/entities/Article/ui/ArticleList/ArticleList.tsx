@@ -56,7 +56,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
           target={target}
           key={`str${i}`}
           className={cls.card}
-        />
+        />,
       );
     }
 

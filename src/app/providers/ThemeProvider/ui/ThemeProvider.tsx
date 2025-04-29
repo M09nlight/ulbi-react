@@ -17,7 +17,7 @@ const ThemeProvider: FC<ThemeProviderProps> = ({ children, initialTheme }) => {
       theme: theme,
       setTheme: setTheme,
     }),
-    [theme]
+    [theme],
   );
 
   return (

@@ -69,5 +69,5 @@ export const Text: FC<TextProps> = memo(
         )}
       </div>
     );
-  }
+  },
 );

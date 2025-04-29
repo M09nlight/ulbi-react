@@ -27,16 +27,19 @@ const ArticleSortSelector: FC<ArticleSortSelectorProps> = ({
       { value: 'asc', content: t('по возрастанию') },
       { value: 'desc', content: t('по убыванию') },
     ],
-    [t]
+    [t],
   );
 
   const sortFieldOptions = useMemo<SelectOption<ArticleSortField>[]>(
     () => [
       { value: ArticleSortField.CREATED, content: t('дате создания') },
       { value: ArticleSortField.TITLE, content: t('названию') },
-      { value: ArticleSortField.VIEWS, content: t('количеству просмотров') },
+      {
+        value: ArticleSortField.VIEWS,
+        content: t('количеству просмотров'),
+      },
     ],
-    [t]
+    [t],
   );
 
   return (

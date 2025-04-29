@@ -31,7 +31,7 @@ const Page: FC<PageProps> = ({
   const dispatch = useAppDispatch();
   const { pathname } = useLocation();
   const scrollPosition = useSelector((state: StateSchema) =>
-    getPageScrollByPath(state, pathname)
+    getPageScrollByPath(state, pathname),
   );
 
   useInfiniteScroll({
@@ -46,7 +46,7 @@ const Page: FC<PageProps> = ({
       pageActions.setScrollPosition({
         path: pathname,
         position: e.currentTarget.scrollTop,
-      })
+      }),
     );
   }, 500);
 

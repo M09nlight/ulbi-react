@@ -28,7 +28,7 @@ const ArticleDetailsComments: FC<ArticleDetailsCommentsProps> = ({ id }) => {
     (text: string) => {
       dispatch(addCommentForArticle(text));
     },
-    [dispatch]
+    [dispatch],
   );
 
   useInitialEffect(() => {

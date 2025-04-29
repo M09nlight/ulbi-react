@@ -112,7 +112,7 @@ export default tseslint.config(
       // 'no-underscore-dangle': 'off',
       // 'max-len': ['error', { ignoreComments: true, code: 100 }],
     },
-  }
+  },
 );
 // export default [
 //   { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },

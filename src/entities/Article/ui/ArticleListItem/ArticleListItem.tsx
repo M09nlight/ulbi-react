@@ -42,7 +42,7 @@ const ArticleListItem = memo((props: ArticleListItemProps) => {
 
   if (view === ArticleView.BIG) {
     const textBlock = article.blocks.find(
-      (block) => block.type === ArticleBlockType.TEXT
+      (block) => block.type === ArticleBlockType.TEXT,
     ) as ArticleTextBlock;
 
     return (

@@ -33,7 +33,7 @@ export function useModal({ animationDelay, isOpen, onClose }: UseModalProps) {
         close();
       }
     },
-    [close]
+    [close],
   );
 
   useEffect(() => {

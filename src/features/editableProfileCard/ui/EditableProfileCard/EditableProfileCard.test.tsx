@@ -49,16 +49,16 @@ describe('features/EditableProfileCard', () => {
   test('Режим рид онли должен переключиться', async () => {
     componentRender(<EditableProfileCard id="1" />, options);
     await userEvent.click(
-      screen.getByTestId('EditableProfileCardHeader.EditButton')
+      screen.getByTestId('EditableProfileCardHeader.EditButton'),
     );
     expect(
-      screen.getByTestId('EditableProfileCardHeader.CancelButton')
+      screen.getByTestId('EditableProfileCardHeader.CancelButton'),
     ).toBeInTheDocument();
   });
   test('При отмене значения обнуляться', async () => {
     componentRender(<EditableProfileCard id="1" />, options);
     await userEvent.click(
-      screen.getByTestId('EditableProfileCardHeader.EditButton')
+      screen.getByTestId('EditableProfileCardHeader.EditButton'),
     );
     await userEvent.clear(screen.getByTestId('ProfileCard.firstname'));
     await userEvent.clear(screen.getByTestId('ProfileCard.lastname'));
@@ -70,7 +70,7 @@ describe('features/EditableProfileCard', () => {
     expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue('user');
 
     await userEvent.click(
-      screen.getByTestId('EditableProfileCardHeader.CancelButton')
+      screen.getByTestId('EditableProfileCardHeader.CancelButton'),
     );
 
     await userEvent.type(screen.getByTestId('ProfileCard.firstname'), 'Ivan');
@@ -79,31 +79,31 @@ describe('features/EditableProfileCard', () => {
   test('Должна появить ошибка', async () => {
     componentRender(<EditableProfileCard id="1" />, options);
     await userEvent.click(
-      screen.getByTestId('EditableProfileCardHeader.EditButton')
+      screen.getByTestId('EditableProfileCardHeader.EditButton'),
     );
     await userEvent.clear(screen.getByTestId('ProfileCard.firstname'));
 
     await userEvent.click(
-      screen.getByTestId('EditableProfileCardHeader.SaveButton')
+      screen.getByTestId('EditableProfileCardHeader.SaveButton'),
     );
 
     expect(
-      screen.getByTestId('EditableProfileCard.Error.Paragraph')
+      screen.getByTestId('EditableProfileCard.Error.Paragraph'),
     ).toBeInTheDocument();
   });
 
   test('Если нет ошибок валидации, то на сервер должен уйти PUT request', async () => {
     componentRender(<EditableProfileCard id="1" />, options);
     await userEvent.click(
-      screen.getByTestId('EditableProfileCardHeader.EditButton')
+      screen.getByTestId('EditableProfileCardHeader.EditButton'),
     );
-  
+
     await userEvent.type(screen.getByTestId('ProfileCard.firstname'), 'user');
-  
+
     await userEvent.click(
-      screen.getByTestId('EditableProfileCardHeader.SaveButton')
+      screen.getByTestId('EditableProfileCardHeader.SaveButton'),
     );
-  
+
     expect($api.put).toHaveBeenCalled();
   });
 });

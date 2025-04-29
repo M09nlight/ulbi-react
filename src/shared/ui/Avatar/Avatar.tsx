@@ -27,7 +27,7 @@ export const Avatar: FC<AvatarProps> = ({
       width: size || 100,
       height: size || 100,
     }),
-    [size]
+    [size],
   );
 
   const fallback = <Skeleton width={size} height={size} border="50%" />;
