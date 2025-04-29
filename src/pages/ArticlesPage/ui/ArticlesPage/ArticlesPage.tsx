@@ -7,12 +7,9 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Page } from '@/widgets/Page';
 
-
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticles/fetchNextArticlesPage';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
-import {
-  articlesPageReducer,
-} from '../../model/slices/articlesPageSlice';
+import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import cls from './ArticlesPage.module.scss';
 import { useSearchParams } from 'react-router-dom';
@@ -41,6 +38,7 @@ const ArticlesPage: FC<ArticlesPageProps> = memo(({ className }) => {
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
       <Page
+        data-testid="ArticlesPage"
         className={classNames(cls.ArticleList, {}, [className])}
         onScrollEnd={onLoadNextPart}
       >

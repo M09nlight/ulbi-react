@@ -63,10 +63,12 @@ export default tseslint.config(
       '@typescript-eslint/ban-ts-comment': 'warn',
       '@typescript-eslint/no-require-imports': 'off',
       '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-namespace': 'off',
       'no-empty-pattern': 'warn',
       'react-hooks/rules-of-hooks': 'error',
       'react-hooks/exhaustive-deps': 'error',
       'no-debugger': 'off',
+      'no-undef': 'off',
       // 'ulbi-tv-plugin/path-checker': ['error', { alias: '@' }],
       'eslint-plugin-check-path-m09blight-plugin/path-checker': [
         'error',
