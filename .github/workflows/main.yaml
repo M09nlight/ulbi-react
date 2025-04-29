@@ -88,6 +88,12 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v2
         if: always()
+      - name: Upload artifact for debugging
+        uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: reports-artifact
+          path: 'reports'
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         if: always()
