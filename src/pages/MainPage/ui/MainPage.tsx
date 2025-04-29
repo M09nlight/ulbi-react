@@ -29,6 +29,7 @@ const MainPage: FC<MainPageProps> = ({}) => {
         />
       </HStack>
       <RatingCard title="title" feedbackTitle="feedbackTitle" hasFeedback />
+      <RatingCard title="title" feedbackTitle="feedbackTitle" hasFeedback />
     </Page>
   );
 };
