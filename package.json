@@ -34,7 +34,10 @@
   "license": "ISC",
   "description": "",
   "lint-staged": {
-    "**/*.{ts,tsx}": "eslint"
+    "**/*.{ts,tsx}": [
+      "prettier --list-different",
+      "eslint"
+    ]
   },
   "devDependencies": {
     "prettier": "3.5.3",
