@@ -50,19 +50,19 @@ export function buildPlugins({
         openAnalyzer: false,
       })
     );
-    if (isProd) {
-      plugins.push(
-        new MiniCssExtractPlugin({
-          filename: 'css/[name].[contenthash:8].css',
-          chunkFilename: 'css/[name].[contenthash:8].css',
-        })
-      );
-      plugins.push(
-        new CopyPlugin({
-          patterns: [{ from: paths.locales, to: paths.buildLocales }],
-        })
-      );
-    }
+  }
+  if (isProd) {
+    plugins.push(
+      new MiniCssExtractPlugin({
+        filename: 'css/[name].[contenthash:8].css',
+        chunkFilename: 'css/[name].[contenthash:8].css',
+      })
+    );
+    plugins.push(
+      new CopyPlugin({
+        patterns: [{ from: paths.locales, to: paths.buildLocales }],
+      })
+    );
   }
 
   return plugins;
