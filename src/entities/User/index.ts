@@ -8,6 +8,7 @@ import {
   isUserAdmin,
   isUserManager,
 } from './model/selectors/roleSelectors';
+import { initAuthData } from './model/services/initAuthData';
 import { saveJsonSettings } from './model/services/saveJsonSettings';
 import { userActions, userReducer } from './model/slice/userSlice';
 import { User, UserSchema } from './model/types/user';
@@ -24,5 +25,6 @@ export {
   // useJsonSettingsByKey,
   useJsonSettings,
   saveJsonSettings,
+  initAuthData,
 };
 export type { UserSchema, User };
