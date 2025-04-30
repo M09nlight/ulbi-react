@@ -6,7 +6,7 @@ import { Text, TextSize } from '@/shared/ui/Text';
 import ArticleListItem from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
 import { Article } from '../../model/types/article';
-import { List, ListRowProps, WindowScroller } from 'react-virtualized';
+// import { List, ListRowProps, WindowScroller } from 'react-virtualized';
 import { ArticleView } from '../../model/consts/articleConsts';
 
 interface ArticleListProps {
@@ -43,29 +43,29 @@ export const ArticleList = memo((props: ArticleListProps) => {
     ? articles.length
     : Math.ceil(articles.length / itemsPerRow);
 
-  const rowRender = ({ index, isScrolling, key, style }: ListRowProps) => {
-    const items = [];
-    const fromIndex = index * itemsPerRow;
-    const toIndex = Math.min(fromIndex + itemsPerRow, articles.length);
+  // const rowRender = ({ index, isScrolling, key, style }: ListRowProps) => {
+  //   const items = [];
+  //   const fromIndex = index * itemsPerRow;
+  //   const toIndex = Math.min(fromIndex + itemsPerRow, articles.length);
 
-    for (let i = fromIndex; i < toIndex; i += 1) {
-      items.push(
-        <ArticleListItem
-          article={articles[i]}
-          view={view}
-          target={target}
-          key={`str${i}`}
-          className={cls.card}
-        />,
-      );
-    }
+  //   for (let i = fromIndex; i < toIndex; i += 1) {
+  //     items.push(
+  //       <ArticleListItem
+  //         article={articles[i]}
+  //         view={view}
+  //         target={target}
+  //         key={`str${i}`}
+  //         className={cls.card}
+  //       />,
+  //     );
+  //   }
 
-    return (
-      <div key={key} style={style} className={cls.row}>
-        {items}
-      </div>
-    );
-  };
+  //   return (
+  //     <div key={key} style={style} className={cls.row}>
+  //       {items}
+  //     </div>
+  //   );
+  // };
 
   if (!isLoading && !articles.length) {
     return (
@@ -74,10 +74,10 @@ export const ArticleList = memo((props: ArticleListProps) => {
       </div>
     );
   }
-
+  // вируализация выключена потому что не работает скролл при возвращении назад
   return (
     <div data-testid="ArticleList">
-      <WindowScroller
+      {/* <WindowScroller  ///
         scrollElement={document.getElementById('PAGE_ID') as Element}
       >
         {({
@@ -87,12 +87,12 @@ export const ArticleList = memo((props: ArticleListProps) => {
           onChildScroll,
           isScrolling,
           scrollTop,
-        }) => (
-          <div
-            ref={registerChild}
-            className={classNames(cls.ArticleList, {}, [className, cls[view]])}
-          >
-            {virtualized ? (
+        }) => (*/}
+      <div
+        // ref={registerChild}
+        className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+      >
+        {/*  {virtualized ? (
               <List
                 height={height ?? 700}
                 rowCount={rowCount}
@@ -104,21 +104,21 @@ export const ArticleList = memo((props: ArticleListProps) => {
                 isScrolling={isScrolling}
                 scrollTop={scrollTop}
               />
-            ) : (
-              articles.map((article) => (
-                <ArticleListItem
-                  article={article}
-                  view={view}
-                  target={target}
-                  key={article.id}
-                  className={cls.card}
-                />
-              ))
-            )}
-            {isLoading && getSkeletons(view)}
-          </div>
-        )}
-      </WindowScroller>
+            ) : ( */}
+        {articles.map((article) => (
+          <ArticleListItem
+            article={article}
+            view={view}
+            target={target}
+            key={article.id}
+            className={cls.card}
+          />
+        ))}
+        {/* )}
+            {isLoading && getSkeletons(view)} */}
+      </div>
+      {/*  )}
+      </WindowScroller> */}
     </div>
   );
 });

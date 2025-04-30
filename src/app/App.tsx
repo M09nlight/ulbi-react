@@ -1,15 +1,14 @@
-import { FC, Suspense, useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { getUserInited, userActions } from '@/entities/User';
 import { AppRouter } from './providers/router';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
-import { userActions } from '@/entities/User';
-import { useDispatch, useSelector } from 'react-redux';
-import { getUserInited } from '@/entities/User';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
 
-interface AppProps {}
-
-const App: FC<AppProps> = ({}) => {
+function App() {
+  const { theme } = useTheme();
   const dispatch = useDispatch();
   const inited = useSelector(getUserInited);
 
@@ -18,7 +17,7 @@ const App: FC<AppProps> = ({}) => {
   }, [dispatch]);
 
   return (
-    <div className={classNames('app', {}, [])}>
+    <div className={classNames('app', {}, [theme])}>
       <Suspense fallback="">
         <Navbar />
         <div className="content-page">
@@ -28,6 +27,6 @@ const App: FC<AppProps> = ({}) => {
       </Suspense>
     </div>
   );
-};
+}
 
 export default App;

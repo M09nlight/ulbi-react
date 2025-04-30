@@ -1,37 +1,32 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from '@/app/providers/StoreProvider';
-import { User } from '@/entities/User';
-import { userActions } from '@/entities/User';
+import { User, userActions } from '@/entities/User';
 import { USER_LOCALSTORAGE_KEY } from '@/shared/consts/localstorage';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
 
 interface LoginByUsernameProps {
   username: string;
   password: string;
 }
-// enum LoginErrors {
-//   INCORRECT_DATA = '',
-//   SERVER_ERROR = '',
-// }
 
 export const loginByUsername = createAsyncThunk<
   User,
   LoginByUsernameProps,
   ThunkConfig<string>
->('login/loginByUsername', async ({ username, password }, thunkApi) => {
+>('login/loginByUsername', async (authData, thunkApi) => {
   const { extra, dispatch, rejectWithValue } = thunkApi;
+
   try {
-    const response = await extra.api.post<User>(`/login`, {
-      username,
-      password,
-    });
+    const response = await extra.api.post<User>('/login', authData);
+
     if (!response.data) {
       throw new Error();
     }
+
     localStorage.setItem(USER_LOCALSTORAGE_KEY, JSON.stringify(response.data));
     dispatch(userActions.setAuthData(response.data));
-    // extra.navigate?.('/about');
     return response.data;
-  } catch (error) {
+  } catch (e) {
+    console.log(e);
     return rejectWithValue('error');
   }
 });
