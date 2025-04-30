@@ -14,6 +14,7 @@ import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters'
 import cls from './ArticlesPage.module.scss';
 import { useSearchParams } from 'react-router-dom';
 import ArticleInfiniteList from '../ArticleInfiniteList/ArticleInfiniteList';
+import { useArticleItemById } from '../../model/selectors/getArticlesPageSelectors';
 
 interface ArticlesPageProps {
   className?: string;
@@ -26,6 +27,10 @@ const reducers: ReducersList = {
 const ArticlesPage: FC<ArticlesPageProps> = memo(({ className }) => {
   const dispatch = useAppDispatch();
   const [searchParams] = useSearchParams();
+
+  const articleItem = useArticleItemById('2');
+
+  console.log('articleItem', articleItem);
 
   const onLoadNextPart = useCallback(() => {
     dispatch(fetchNextArticlesPage());
