@@ -14,8 +14,9 @@ import { articleDetailsPageReducer } from '../../model/slices';
 import ArticleDetailsComments from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import cls from './ArticleDetailsPage.module.scss';
-import { getFeatureFlags } from '@/shared/lib/features';
-import { Counter } from '@/entities/Counter';
+import { getFeatureFlags, toggleFeatures } from '@/shared/lib/features';
+import { Card } from '@/shared/ui/Card';
+// import { Counter } from '@/entities/Counter';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -23,6 +24,13 @@ interface ArticleDetailsPageProps {
 
 const reducers: ReducersList = {
   articleDetailsPage: articleDetailsPageReducer,
+};
+
+const Counter = () => {
+  return <div>old counter</div>;
+};
+const CounterRedesigned = () => {
+  return <div>new counter</div>;
 };
 
 const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
@@ -36,6 +44,18 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     return null;
   }
 
+  const counter = toggleFeatures({
+    name: 'isCounterEnabled',
+    on: () => <CounterRedesigned />, //нельзя тут делать вычисления!!сломается
+    off: () => <Counter />,
+  });
+
+  const articleRatingCard = toggleFeatures({
+    name: 'isArticleRatingEnabled',
+    on: () => <ArticleRating articleId={id} />,
+    off: () => <Card>test</Card>,
+  });
+
   return (
     <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
@@ -43,8 +63,8 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
           <ArticleDetailsPageHeader />
           <ArticleDetails id={id} />
           {/* Detached bag */}
-          {isCounterEnabled && <Counter />}
-          {isArticleRatingEnabled && <ArticleRating articleId={id} />}
+          {isCounterEnabled ? <CounterRedesigned /> : <Counter />}
+          {articleRatingCard}
           <ArticleRecommendationsList />
           <ArticleDetailsComments id={id} />
         </VStack>
