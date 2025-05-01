@@ -5,7 +5,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 
 import { Theme } from '@/shared/consts/theme';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import Sidebar from './Sidebar';
+import { Sidebar } from './Sidebar';
 
 export default {
   title: 'widgets/Sidebar',
