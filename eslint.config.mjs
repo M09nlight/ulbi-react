@@ -56,7 +56,7 @@ export default tseslint.config(
     rules: {
       // ...prettierPlugin.configs.recommended.rules,
       ...eslintConfigPrettier.rules,
-      // 'prettier/prettier': ['error', {}, { usePrettierrc: true }],
+      'prettier/prettier': ['warn', {}, { usePrettierrc: true }],
       'prefer-const': 'warn',
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': 'warn',

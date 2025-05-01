@@ -7,7 +7,7 @@ import { Sidebar } from '@/widgets/Sidebar';
 import { Suspense, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { AppRouter } from './providers/router';
-import { PageLoader } from '@/widgets/PageLoader';
+// import { PageLoader } from '@/widgets/PageLoader';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { MainLayout } from '@/shared/layouts/MainLayout';
 
@@ -20,10 +20,9 @@ function App() {
     dispatch(initAuthData());
   }, [dispatch]);
 
-  if (!inited) {
-    return <PageLoader />;
-  }
-
+  // if (!inited) {
+  //   return <PageLoader />;
+  // }
   return (
     <ToggleFeatures
       feature="isAppRedesigned"
