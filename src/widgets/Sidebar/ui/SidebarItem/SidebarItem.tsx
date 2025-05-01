@@ -1,5 +1,5 @@
 import { FC, memo } from 'react';
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
+import { AppLink, AppLinkTheme } from '@/shared/ui/deprecated/AppLink';
 import { SidebarItemType } from '../../model/types/sidebar';
 import { useTranslation } from 'react-i18next';
 import styles from './SidebarItem.module.scss';

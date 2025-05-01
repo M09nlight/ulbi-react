@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Page } from '@/widgets/Page';
 import { Counter } from '@/entities/Counter';
-import { HStack } from '@/shared/ui/Stack';
-import { ListBox } from '@/shared/ui/Popups';
+import { HStack } from '@/shared/ui/deprecated/Stack';
+import { ListBox } from '@/shared/ui/deprecated/Popups';
 import { RatingCard } from '@/entities/Rating';
 
 interface MainPageProps {}

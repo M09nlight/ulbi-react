@@ -7,7 +7,7 @@ import {
 import { getArticles } from '../../model/slices/articlesPageSlice';
 import { FC } from 'react';
 import { useSelector } from 'react-redux';
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/deprecated/Text';
 import { useTranslation } from 'react-i18next';
 
 interface ArticleInfiniteListProps {
