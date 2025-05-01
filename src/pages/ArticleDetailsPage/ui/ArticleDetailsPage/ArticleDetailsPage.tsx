@@ -14,7 +14,11 @@ import { articleDetailsPageReducer } from '../../model/slices';
 import ArticleDetailsComments from '../ArticleDetailsComments/ArticleDetailsComments';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import cls from './ArticleDetailsPage.module.scss';
-import { getFeatureFlags, toggleFeatures } from '@/shared/lib/features';
+import {
+  getFeatureFlags,
+  ToggleFeatures,
+  toggleFeatures,
+} from '@/shared/lib/features';
 import { Card } from '@/shared/ui/Card';
 // import { Counter } from '@/entities/Counter';
 
@@ -44,12 +48,6 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
     return null;
   }
 
-  const counter = toggleFeatures({
-    name: 'isCounterEnabled',
-    on: () => <CounterRedesigned />, //нельзя тут делать вычисления!!сломается
-    off: () => <Counter />,
-  });
-
   const articleRatingCard = toggleFeatures({
     name: 'isArticleRatingEnabled',
     on: () => <ArticleRating articleId={id} />,
@@ -62,6 +60,11 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
         <VStack gap="16" max>
           <ArticleDetailsPageHeader />
           <ArticleDetails id={id} />
+          <ToggleFeatures
+            feature="isCounterEnabled"
+            on={<CounterRedesigned />}
+            off={<Counter />}
+          />
           {/* Detached bag */}
           {isCounterEnabled ? <CounterRedesigned /> : <Counter />}
           {articleRatingCard}
