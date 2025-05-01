@@ -11,6 +11,7 @@ import { getPageScrollByPath } from '../model/selectors/page';
 import { StateSchema } from '@/app/providers/StoreProvider';
 import { useThrottle } from '@/shared/lib/hooks/useThrottle/useThrottle';
 import { TestProps } from '@/shared/types/tests';
+import { toggleFeatures } from '@/shared/lib/features';
 
 interface PageProps extends TestProps {
   className?: string;
@@ -57,7 +58,15 @@ const Page: FC<PageProps> = ({
   return (
     <section
       ref={wrapperRef}
-      className={classNames(cls.Page, {}, [className])}
+      className={classNames(
+        toggleFeatures({
+          name: 'isAppRedesigned',
+          on: () => cls.PageRedesigned,
+          off: () => cls.Page,
+        }),
+        {},
+        [className],
+      )}
       onScroll={onScroll}
       id={PAGE_ID}
       data-testid={dataTestId ?? 'Page'}

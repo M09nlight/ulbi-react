@@ -10,7 +10,7 @@ import eslintCheckPath from 'eslint-plugin-check-path-m09blight-plugin';
 // import eslintCheckPath from 'eslint-plugin-ulbi-tv-plugin';
 
 import eslintConfigPrettier from 'eslint-config-prettier';
-// import prettierPlugin from 'eslint-plugin-prettier';
+import prettierPlugin from 'eslint-plugin-prettier';
 // import i18next from 'eslint-plugin-i18next';
 
 /** @type {import('eslint').Linter.Config[]} */
@@ -26,7 +26,7 @@ export default tseslint.config(
       'unused-imports': unUsedImports,
       // 'ulbi-tv-plugin': eslintCheckPath,
 
-      // prettier: prettierPlugin,
+      prettier: prettierPlugin,
       // i18next: i18next,
     },
   },
@@ -56,6 +56,7 @@ export default tseslint.config(
     rules: {
       // ...prettierPlugin.configs.recommended.rules,
       ...eslintConfigPrettier.rules,
+      // 'prettier/prettier': ['error', {}, { usePrettierrc: true }],
       'prefer-const': 'warn',
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': 'warn',

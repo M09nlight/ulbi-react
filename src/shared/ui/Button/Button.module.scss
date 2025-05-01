@@ -12,6 +12,7 @@
   background: none;
   outline: none;
 }
+
 .clearInverted {
   color: var(--inverted-primary-color);
 }
@@ -21,6 +22,7 @@
   color: var(--primary-color);
   background: none;
 }
+
 .outlineRed {
   border: 1px solid var(--red-light);
   color: var(--red-light);
@@ -72,9 +74,11 @@
 .size_xl {
   font: var(--font-xl);
 }
+
 .disabled {
   opacity: 0.5;
 }
+
 .fullWidth {
   width: 100%;
 }
