@@ -1,7 +1,9 @@
-import { Currency } from '../../model/types/currency';
-import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ListBox } from '@/shared/ui/deprecated/ListBox';
+import { memo, useCallback } from 'react';
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups';
+import { Currency } from '../../model/types/currency';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
 
 interface CurrencySelectProps {
   className?: string;
@@ -10,33 +12,33 @@ interface CurrencySelectProps {
   readonly?: boolean;
 }
 
-const CurrencySelect: FC<CurrencySelectProps> = memo(
-  ({ className, value, onChange, readonly }) => {
+const options = [
+  { value: Currency.RUB, content: Currency.RUB },
+  { value: Currency.EUR, content: Currency.EUR },
+  { value: Currency.USD, content: Currency.USD },
+];
+
+export const CurrencySelect = memo(
+  ({ className, value, onChange, readonly }: CurrencySelectProps) => {
     const { t } = useTranslation();
 
-    const options = [
-      { value: Currency.RUB, content: Currency.RUB },
-      { value: Currency.EUR, content: Currency.EUR },
-      { value: Currency.USD, content: Currency.USD },
-    ];
-    const onChangeHander = useCallback(
+    const onChangeHandler = useCallback(
       (value: string) => {
         onChange?.(value as Currency);
       },
       [onChange],
     );
 
-    return (
-      <ListBox
-        value={value}
-        items={options}
-        onChange={onChangeHander}
-        readonly={readonly}
-        defaultValue={t('enterCurrency')}
-        direction="top right"
-        label="Укажите валюту"
-      />
-    );
+    const props = {
+      className,
+      value,
+      defaultValue: t('Укажите валюту'),
+      label: t('Укажите валюту'),
+      items: options,
+      onChange: onChangeHandler,
+      readonly,
+      direction: 'top right' as const,
+    };
 
     // return (
     //   <Select
@@ -48,7 +50,13 @@ const CurrencySelect: FC<CurrencySelectProps> = memo(
     //     readonly={readonly}
     //   />
     // );
+
+    return (
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={<ListBox {...props} />}
+        off={<ListBoxDeprecated {...props} />}
+      />
+    );
   },
 );
-
-export default CurrencySelect;

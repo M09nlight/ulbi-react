@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 // import { AvatarImg } from '@/shared/ui/deprecated/Avatar';
-import ProfileCard from './ProfileCard';
+import { ProfileCard } from './ProfileCard';
 
 export default {
   title: 'entities/ProfileCard',

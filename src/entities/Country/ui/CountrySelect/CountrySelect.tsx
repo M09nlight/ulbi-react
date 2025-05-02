@@ -1,7 +1,9 @@
-import { Country } from '../../model/types/country';
-import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ListBox } from '@/shared/ui/deprecated/ListBox';
+import { memo, useCallback } from 'react';
+import { ListBox as ListBoxDeprecated } from '@/shared/ui/deprecated/Popups';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
+import { Country } from '../../model/types/country';
+import { ToggleFeatures } from '@/shared/lib/features';
 
 interface CountrySelectProps {
   className?: string;
@@ -10,33 +12,35 @@ interface CountrySelectProps {
   readonly?: boolean;
 }
 
-const CountrySelect: FC<CountrySelectProps> = memo(
-  ({ className, value, onChange, readonly }) => {
+const options = [
+  { value: Country.Ukraine, content: Country.Ukraine },
+  { value: Country.Russia, content: Country.Russia },
+  { value: Country.Belarus, content: Country.Belarus },
+  { value: Country.Poland, content: Country.Poland },
+];
+
+export const CountrySelect = memo(
+  ({ className, value, onChange, readonly }: CountrySelectProps) => {
     const { t } = useTranslation();
 
-    const options = [
-      { value: Country.Belarus, content: Country.Belarus },
-      { value: Country.Poland, content: Country.Poland },
-      { value: Country.Russia, content: Country.Russia },
-      { value: Country.Ukraine, content: Country.Ukraine },
-    ];
-    const onChangeHander = useCallback(
+    const onChangeHandler = useCallback(
       (value: string) => {
         onChange?.(value as Country);
       },
       [onChange],
     );
 
-    return (
-      <ListBox
-        value={value}
-        items={options}
-        onChange={onChangeHander}
-        readonly={readonly}
-        defaultValue={t('enterCurrency')}
-        label="Укажите страну"
-      />
-    );
+    const props = {
+      className,
+      value,
+      defaultValue: t('Укажите страну'),
+      label: t('Укажите страну'),
+      items: options,
+      onChange: onChangeHandler,
+      readonly,
+      direction: 'top right' as const,
+    };
+
     // return (
     //   <Select
     //     className={classNames('', {}, [className])}
@@ -47,7 +51,13 @@ const CountrySelect: FC<CountrySelectProps> = memo(
     //     readonly={readonly}
     //   />
     // );
+
+    return (
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={<ListBox {...props} />}
+        off={<ListBoxDeprecated {...props} />}
+      />
+    );
   },
 );
-
-export default CountrySelect;
