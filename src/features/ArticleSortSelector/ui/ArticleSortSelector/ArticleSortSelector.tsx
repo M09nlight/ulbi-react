@@ -1,9 +1,14 @@
-import { FC, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
+import { memo, useMemo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Select, SelectOption } from '@/shared/ui/deprecated/Select';
-import { useTranslation } from 'react-i18next';
 import { SortOrder } from '@/shared/types/sort';
+import cls from './ArticleSortSelector.module.scss';
 import { ArticleSortField } from '@/entities/Article';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { ListBox } from '@/shared/ui/redesigned/Popups';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { Text } from '@/shared/ui/redesigned/Text';
 
 interface ArticleSortSelectorProps {
   className?: string;
@@ -13,51 +18,83 @@ interface ArticleSortSelectorProps {
   onChangeSort: (newSort: ArticleSortField) => void;
 }
 
-const ArticleSortSelector: FC<ArticleSortSelectorProps> = ({
-  className,
-  onChangeOrder,
-  onChangeSort,
-  order,
-  sort,
-}) => {
+export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
+  const { className, onChangeOrder, onChangeSort, order, sort } = props;
   const { t } = useTranslation();
 
   const orderOptions = useMemo<SelectOption<SortOrder>[]>(
     () => [
-      { value: 'asc', content: t('по возрастанию') },
-      { value: 'desc', content: t('по убыванию') },
+      {
+        value: 'asc',
+        content: t('возрастанию'),
+      },
+      {
+        value: 'desc',
+        content: t('убыванию'),
+      },
     ],
     [t],
   );
 
   const sortFieldOptions = useMemo<SelectOption<ArticleSortField>[]>(
     () => [
-      { value: ArticleSortField.CREATED, content: t('дате создания') },
-      { value: ArticleSortField.TITLE, content: t('названию') },
+      {
+        value: ArticleSortField.CREATED,
+        content: t('дате создания'),
+      },
+      {
+        value: ArticleSortField.TITLE,
+        content: t('названию'),
+      },
       {
         value: ArticleSortField.VIEWS,
-        content: t('количеству просмотров'),
+        content: t('просмотрам'),
       },
     ],
     [t],
   );
 
   return (
-    <div className={classNames('', {}, [className])}>
-      <Select<ArticleSortField>
-        options={sortFieldOptions}
-        label={t('сортировать по')}
-        onChange={onChangeSort}
-        value={sort}
-      />
-      <Select<SortOrder>
-        options={orderOptions}
-        label={t('сортировать по')}
-        onChange={onChangeOrder}
-        value={order}
-      />
-    </div>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <div
+          className={classNames(cls.ArticleSortSelectorRedesigned, {}, [
+            className,
+          ])}
+        >
+          <VStack gap="8">
+            <Text text={t('Сортировать по:')} />
+            <ListBox
+              items={sortFieldOptions}
+              value={sort}
+              onChange={onChangeSort}
+            />
+            <ListBox
+              items={orderOptions}
+              value={order}
+              onChange={onChangeOrder}
+            />
+          </VStack>
+        </div>
+      }
+      off={
+        <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
+          <Select<ArticleSortField>
+            options={sortFieldOptions}
+            label={t('Сортировать ПО')}
+            value={sort}
+            onChange={onChangeSort}
+          />
+          <Select
+            options={orderOptions}
+            label={t('по')}
+            value={order}
+            onChange={onChangeOrder}
+            className={cls.order}
+          />
+        </div>
+      }
+    />
   );
-};
-
-export default ArticleSortSelector;
+});

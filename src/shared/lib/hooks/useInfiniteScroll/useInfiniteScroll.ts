@@ -3,7 +3,7 @@ import { MutableRefObject, useEffect } from 'react';
 export interface UseInfiniteScrollOptions {
   callback?: () => void;
   triggerRef: MutableRefObject<HTMLElement>;
-  wrapperRef: MutableRefObject<HTMLElement>;
+  wrapperRef?: MutableRefObject<HTMLElement>;
 }
 
 export function useInfiniteScroll({
@@ -12,7 +12,7 @@ export function useInfiniteScroll({
   callback,
 }: UseInfiniteScrollOptions) {
   useEffect(() => {
-    const wrapperElement = wrapperRef.current; //замыкания, позволяют получить дом ноды даже если компонент демонтируется
+    const wrapperElement = wrapperRef?.current || null; //замыкания, позволяют получить дом ноды даже если компонент демонтируется
     const triggerElement = triggerRef.current;
 
     let observer: IntersectionObserver | null = null;
