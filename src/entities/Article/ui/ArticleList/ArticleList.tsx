@@ -1,13 +1,14 @@
-import { classNames } from '@/shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
-import { ArticleListItemSkeleton } from '../../ui/ArticleListItem/ArticleListItemSkeleton';
+import { classNames } from '@/shared/lib/classNames/classNames';
 import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import { ArticleView } from '../../model/consts/articleConsts';
+import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import cls from './ArticleList.module.scss';
 import { Article } from '../../model/types/article';
-// import { List, ListRowProps, WindowScroller } from 'react-virtualized';
-import { ArticleView } from '../../model/consts/articleConsts';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 
 interface ArticleListProps {
   className?: string;
@@ -15,7 +16,6 @@ interface ArticleListProps {
   isLoading?: boolean;
   target?: HTMLAttributeAnchorTarget;
   view?: ArticleView;
-  virtualized?: boolean;
 }
 
 const getSkeletons = (view: ArticleView) =>
@@ -32,16 +32,16 @@ export const ArticleList = memo((props: ArticleListProps) => {
     view = ArticleView.SMALL,
     isLoading,
     target,
-    virtualized = true,
   } = props;
   const { t } = useTranslation();
 
-  const isBig = view === ArticleView.BIG;
-
-  const itemsPerRow = isBig ? 1 : 3;
-  const rowCount = isBig
-    ? articles.length
-    : Math.ceil(articles.length / itemsPerRow);
+  if (!isLoading && !articles.length) {
+    return (
+      <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+        <Text size={TextSize.L} title={t('Статьи не найдены')} />
+      </div>
+    );
+  }
 
   // const rowRender = ({ index, isScrolling, key, style }: ListRowProps) => {
   //   const items = [];
@@ -67,13 +67,6 @@ export const ArticleList = memo((props: ArticleListProps) => {
   //   );
   // };
 
-  if (!isLoading && !articles.length) {
-    return (
-      <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
-        <Text size={TextSize.L} title={t('Статьи не найдены')} />
-      </div>
-    );
-  }
   // вируализация выключена потому что не работает скролл при возвращении назад
   // return (
   //   <div data-testid="ArticleList">
@@ -123,20 +116,44 @@ export const ArticleList = memo((props: ArticleListProps) => {
   // );
 
   return (
-    <div
-      className={classNames(cls.ArticleList, {}, [className, cls[view]])}
-      data-testid="ArticleList"
-    >
-      {articles.map((item) => (
-        <ArticleListItem
-          article={item}
-          view={view}
-          target={target}
-          key={item.id}
-          className={cls.card}
-        />
-      ))}
-      {isLoading && getSkeletons(view)}
-    </div>
+    <ToggleFeatures
+      feature="isAppRedesigned"
+      on={
+        <HStack
+          wrap="wrap"
+          gap="16"
+          className={classNames(cls.ArticleListRedesigned, {}, [])}
+          data-testid="ArticleList"
+        >
+          {articles.map((item) => (
+            <ArticleListItem
+              article={item}
+              view={view}
+              target={target}
+              key={item.id}
+              className={cls.card}
+            />
+          ))}
+          {isLoading && getSkeletons(view)}
+        </HStack>
+      }
+      off={
+        <div
+          className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+          data-testid="ArticleList"
+        >
+          {articles.map((item) => (
+            <ArticleListItem
+              article={item}
+              view={view}
+              target={target}
+              key={item.id}
+              className={cls.card}
+            />
+          ))}
+          {isLoading && getSkeletons(view)}
+        </div>
+      }
+    />
   );
 });

@@ -1,9 +1,11 @@
-import { ArticleList } from '@/entities/Article';
-import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { VStack } from '@/shared/ui/deprecated/Stack';
-import { Text, TextSize } from '@/shared/ui/deprecated/Text';
+import { Text as TextDeprecated, TextSize } from '@/shared/ui/deprecated/Text';
+import { ArticleList } from '@/entities/Article';
+import { VStack } from '@/shared/ui/redesigned/Stack';
+import { ToggleFeatures } from '@/shared/lib/features';
+import { Text } from '@/shared/ui/redesigned/Text';
 import { useGetArticleRecommendationsListQuery } from '../../api/articleRecommendationsApi';
 
 interface ArticleRecommendationsListProps {
@@ -14,33 +16,28 @@ export const ArticleRecommendationsList = memo(
   (props: ArticleRecommendationsListProps) => {
     const { className } = props;
     const { t } = useTranslation();
-
     const {
       isLoading,
       data: articles,
-      isError,
       error,
     } = useGetArticleRecommendationsListQuery(3);
 
-    console.log(articles);
-
-    if (isLoading || !articles || error) {
+    if (isLoading || error || !articles) {
       return null;
     }
 
     return (
       <VStack
+        data-testid="ArticleRecommendationsList"
         gap="8"
         className={classNames('', {}, [className])}
-        data-testid="ArticleRecommendationsList"
       >
-        <Text size={TextSize.L} title={t('Рекомендуем')} />
-        <ArticleList
-          articles={articles}
-          isLoading={isLoading}
-          target="_blank"
-          virtualized={false}
+        <ToggleFeatures
+          feature="isAppRedesigned"
+          on={<Text size="l" title={t('Рекомендуем')} />}
+          off={<TextDeprecated size={TextSize.L} title={t('Рекомендуем')} />}
         />
+        <ArticleList articles={articles} target="_blank" />
       </VStack>
     );
   },
