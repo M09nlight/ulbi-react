@@ -15,7 +15,7 @@ import ArticleDetailsComments from '../ArticleDetailsComments/ArticleDetailsComm
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import cls from './ArticleDetailsPage.module.scss';
 import {
-  getFeatureFlags,
+  getFeatureFlag,
   ToggleFeatures,
   toggleFeatures,
 } from '@/shared/lib/features';
@@ -41,8 +41,8 @@ const ArticleDetailsPage = (props: ArticleDetailsPageProps) => {
   const { className } = props;
   const { t } = useTranslation('article-details');
   const { id } = useParams<{ id: string }>();
-  const isArticleRatingEnabled = getFeatureFlags('isArticleRatingEnabled');
-  const isCounterEnabled = getFeatureFlags('isCounterEnabled');
+  const isArticleRatingEnabled = getFeatureFlag('isArticleRatingEnabled');
+  const isCounterEnabled = getFeatureFlag('isCounterEnabled');
 
   if (!id) {
     return null;
