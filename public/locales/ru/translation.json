@@ -18,5 +18,9 @@
   "incorrectEmailOrPassword": "Вы ввели неверный email или password",
   "Logout": "Выйти",
   "about": "О сайте",
-  "profilePage": "Страница профиля"
+  "profilePage": "Страница профиля",
+  "{{count}} просмотров_zero": "{{count}} просмотров",
+  "{{count}} просмотров_one": "{{count}} просмотр",
+  "{{count}} просмотров_few": "{{count}} просмотра",
+  "{{count}} просмотров_many": "{{count}} просмотров"
 }

@@ -18,5 +18,8 @@
   "about": "About site",
   "profilePage": "Profile page",
   "enterCountry": "Enter country",
-  "enterCurrency": "Enter currency"
+  "enterCurrency": "Enter currency",
+  "{{count}} просмотров_zero": "{{count}} views",
+  "{{count}} просмотров_one": "{{count}} view",
+  "{{count}} просмотров_other": "{{count}} views"
 }

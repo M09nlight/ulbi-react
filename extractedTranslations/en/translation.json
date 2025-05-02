@@ -51,6 +51,8 @@
   "yourLastname": "yourLastname",
   "yourName": "yourName",
   "yourUsername": "yourUsername",
+  "{{count}} просмотров": "",
+  "{{count}} просмотров_plural": "",
   "Админка": "Админка",
   "Айти": "Айти",
   "Вариант интерфейса": "",
