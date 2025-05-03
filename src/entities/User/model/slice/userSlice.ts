@@ -1,5 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { USER_LOCALSTORAGE_KEY } from '@/shared/consts/localstorage';
+import {
+  LOCAL_STORAGE_LAST_DESIGN_KEY,
+  USER_LOCALSTORAGE_KEY,
+} from '@/shared/consts/localstorage';
 import { UserSchema, User } from '../types/user';
 import { setFeatureFlags } from '@/shared/lib/features';
 import { saveJsonSettings } from '../services/saveJsonSettings';
@@ -15,10 +18,15 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     setAuthData: (state, action: PayloadAction<User>) => {
+      // по хорошему значение в локал сорэдж сохранять в async thunk
       state.authData = action.payload;
       setFeatureFlags(action.payload.features);
 
       localStorage.setItem(USER_LOCALSTORAGE_KEY, action.payload.id);
+      localStorage.setItem(
+        LOCAL_STORAGE_LAST_DESIGN_KEY,
+        action.payload.features?.isAppRedesigned ? 'new' : 'old',
+      );
     },
     logout: (state) => {
       state.authData = undefined;

@@ -1,21 +1,24 @@
-import { getUserInited, initAuthData } from '@/entities/User';
+import React, { memo, Suspense, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/classNames/classNames';
-import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+import { getUserInited, initAuthData } from '@/entities/User';
+import { AppRouter } from './providers/router';
 import { Navbar } from '@/widgets/Navbar';
 import { Sidebar } from '@/widgets/Sidebar';
-import { Suspense, useEffect } from 'react';
-import { useSelector } from 'react-redux';
-import { AppRouter } from './providers/router';
-// import { PageLoader } from '@/widgets/PageLoader';
+import { useTheme } from '@/shared/lib/hooks/useTheme/useTheme';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { ToggleFeatures } from '@/shared/lib/features';
 import { MainLayout } from '@/shared/layouts/MainLayout';
-// import { PageLoader } from '@/widgets/PageLoader';
+import { AppLoaderLayout } from '@/shared/layouts/AppLoaderLayout';
+import { PageLoader } from '@/widgets/PageLoader';
+import { useAppToolbar } from './lib/useAppToolbar';
+import { withTheme } from './providers/ThemeProvider/ui/withTheme';
 
-function App() {
+const App = memo(() => {
   const { theme } = useTheme();
   const dispatch = useAppDispatch();
   const inited = useSelector(getUserInited);
+  const toolbar = useAppToolbar();
 
   useEffect(() => {
     if (!inited) {
@@ -23,15 +26,25 @@ function App() {
     }
   }, [dispatch, inited]);
 
-  // if (!inited) {
-  //   return <PageLoader />;
-  // }
+  if (!inited) {
+    return (
+      <ToggleFeatures
+        feature="isAppRedesigned"
+        on={
+          <div id="app" className={classNames('app_redesigned', {}, [theme])}>
+            <AppLoaderLayout />{' '}
+          </div>
+        }
+        off={<PageLoader />}
+      />
+    );
+  }
 
   return (
     <ToggleFeatures
       feature="isAppRedesigned"
       off={
-        <div className={classNames('app', {}, [theme])}>
+        <div id="app" className={classNames('app', {}, [theme])}>
           <Suspense fallback="">
             <Navbar />
             <div className="content-page">
@@ -42,18 +55,19 @@ function App() {
         </div>
       }
       on={
-        <div className={classNames('app_redesigned', {}, [theme])}>
+        <div id="app" className={classNames('app_redesigned', {}, [theme])}>
           <Suspense fallback="">
             <MainLayout
               header={<Navbar />}
               content={<AppRouter />}
               sidebar={<Sidebar />}
+              toolbar={toolbar}
             />
           </Suspense>
         </div>
       }
     />
   );
-}
+});
 
-export default App;
+export default withTheme(App);

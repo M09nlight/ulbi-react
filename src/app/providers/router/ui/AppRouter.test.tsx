@@ -2,7 +2,7 @@ import { componentRender } from '@/shared/lib/tests/componentRender/componentRen
 import AppRouter from './AppRouter';
 import {
   getRouteAbout,
-  getRouteAdminPanel,
+  getRouteAdmin,
   getRouteProfile,
 } from '@/shared/consts/router';
 import { screen } from '@testing-library/react';
@@ -53,7 +53,7 @@ describe('app/route/AppRouter', () => {
   });
   test('access denied (no role)', async () => {
     componentRender(<AppRouter />, {
-      route: getRouteAdminPanel(),
+      route: getRouteAdmin(),
       initialState: {
         user: {
           authData: {},
@@ -68,7 +68,7 @@ describe('app/route/AppRouter', () => {
   });
   test('access provided (admin role)', async () => {
     componentRender(<AppRouter />, {
-      route: getRouteAdminPanel(),
+      route: getRouteAdmin(),
       initialState: {
         user: {
           authData: {

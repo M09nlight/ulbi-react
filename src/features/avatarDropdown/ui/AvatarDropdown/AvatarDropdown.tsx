@@ -11,7 +11,7 @@ import {
   userActions,
 } from '@/entities/User';
 import {
-  getRouteAdminPanel,
+  getRouteAdmin,
   getRouteProfile,
   getRouteSettings,
 } from '@/shared/consts/router';
@@ -46,7 +46,7 @@ export const AvatarDropdown = memo((props: AvatarDropdownProps) => {
       ? [
           {
             content: t('Админка'),
-            href: getRouteAdminPanel(),
+            href: getRouteAdmin(),
           },
         ]
       : []),

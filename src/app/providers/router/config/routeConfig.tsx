@@ -12,7 +12,7 @@ import { SettingsPage } from '@/pages/SettingsPage';
 import {
   AppRoutes,
   getRouteAbout,
-  getRouteAdminPanel,
+  getRouteAdmin,
   getRouteArticleCreate,
   getRouteArticleDetails,
   getRouteArticleEdit,
@@ -63,7 +63,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     element: <ArticleEditPage />,
   },
   [AppRoutes.ADMIN_PANEL]: {
-    path: getRouteAdminPanel(),
+    path: getRouteAdmin(),
     element: <AdminPanelPage />,
     authOnly: true,
     roles: [UserRole.ADMIN, UserRole.MANAGER],
