@@ -42,7 +42,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
   const password = useSelector(getLoginPassword);
   const isLoading = useSelector(getLoginIsLoading);
   const error = useSelector(getLoginError);
-  const forceUpdate = useForceUpdate();
+  const forceUpdate = useForceUpdate(); //костыль
 
   const onChangeUsername = useCallback(
     (value: string) => {

@@ -44,8 +44,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    */
   fullWidth?: boolean;
 }
+
 /**
- *
  * Устарел, используем новые компоненты из папки redesigned
  * @deprecated
  */
