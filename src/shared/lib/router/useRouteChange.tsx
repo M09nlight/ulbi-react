@@ -7,12 +7,15 @@ export function useRouteChange() {
   const [appRoute, setAppRoute] = useState<AppRoutes>(AppRoutes.MAIN);
 
   useEffect(() => {
+    //profile: id..
     Object.entries(AppRouteByPathPattern).forEach(([pattern, route]) => {
       if (matchPath(pattern, location.pathname)) {
         setAppRoute(route);
       }
     });
   }, [location.pathname]);
+
+  console.log('appRoute', appRoute);
 
   return appRoute;
 }
