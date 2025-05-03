@@ -17,15 +17,14 @@ export const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
-    setAuthData: (state, action: PayloadAction<User>) => {
+    setAuthData: (state, { payload }: PayloadAction<User>) => {
       // по хорошему значение в локал сорэдж сохранять в async thunk
-      state.authData = action.payload;
-      setFeatureFlags(action.payload.features);
-
-      localStorage.setItem(USER_LOCALSTORAGE_KEY, action.payload.id);
+      state.authData = payload;
+      setFeatureFlags(payload.features);
+      localStorage.setItem(USER_LOCALSTORAGE_KEY, payload.id);
       localStorage.setItem(
         LOCAL_STORAGE_LAST_DESIGN_KEY,
-        action.payload.features?.isAppRedesigned ? 'new' : 'old',
+        payload.features?.isAppRedesigned ? 'new' : 'old',
       );
     },
     logout: (state) => {
@@ -51,9 +50,7 @@ export const userSlice = createSlice({
       },
     );
     builder.addCase(initAuthData.rejected, (state) => {
-      if (state.authData) {
-        state._inited = true;
-      }
+      state._inited = true;
     });
   },
 });
