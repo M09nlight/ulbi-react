@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Page } from '@/widgets/Page';
 import { Counter } from '@/entities/Counter';
-import { HStack } from '@/shared/ui/deprecated/Stack';
+import { HStack } from '@/shared/ui/redesigned/Stack';
 import { ListBox } from '@/shared/ui/deprecated/Popups';
 import { RatingCard } from '@/entities/Rating';
 
